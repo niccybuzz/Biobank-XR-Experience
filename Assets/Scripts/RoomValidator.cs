@@ -4,12 +4,15 @@ using UnityEngine;
 using Meta.XR.MRUtilityKit;
 using System;
 using TMPro;
+using UnityEngine.UI;
 
 public class RoomValidator : MonoBehaviour
 {
     private MRUKRoom currentRoom;
     private string[] propertiesToCheck = { "TABLE" };
-    private bool roomHasTable = false;
+    private bool tableIsLongEnough = false;
+    private bool tableIsWideEnough = false;
+    public Button continueButton;
 
     [SerializeField]
     private float minimumTableLength = 1f;
@@ -24,43 +27,47 @@ public class RoomValidator : MonoBehaviour
     public void RoomValidate()
     {
         currentRoom = MRUK.Instance.GetCurrentRoom();
+        bool roomHasTable;
 
         if (currentRoom != null)
         {
             roomHasTable = currentRoom.DoesRoomHave(propertiesToCheck);
-
             if (roomHasTable)
             {
-                CheckTableSize(currentRoom);
+                List<MRUKAnchor> tables = GetAllTables(currentRoom);
+                MRUKAnchor largestTable = GetLargestTable(tables);
+                CheckTableSize(largestTable);
             }
-            else
-            {
-                roomValidationText.text = "No table detected in your environment.\n\n Please configure your space setup in Oculus settings to include a table at least " + minimumTableLength + " by " + minimumTableWidth + " metres.\n\n Alternatively, you may create a virtual table if there are no suitable tables available.";
-                Debug.LogWarning("Room does not have a table");
-            }
+            
+            UpdateValidationGUIText(roomHasTable, tableIsLongEnough, tableIsWideEnough);
+
         }
     }
 
     //Checks the size of the tables in the room and modifies the text in the room setup pop-up window appropriately
-    private void CheckTableSize(MRUKRoom room)
+    private void CheckTableSize(MRUKAnchor table)
     {
-        List<MRUKAnchor> tables = GetAllTables(room);
+        Vector2 tableSize = table.PlaneRect.Value.size;
 
-        // Check the size of each table in the room. If a table of minimum size requirements is found, allow the user to choose between using that table or a virtual one.
-        foreach (MRUKAnchor table in tables)
+        if (tableSize.x > minimumTableLength)
         {
-            Vector2 tableSize = table.PlaneRect.Value.size;
-            if (tableSize.x > 1)
-            {
-                roomValidationText.text = "A suitable table has been detected in your room";
-                return;
-            }
-            else
-            {
-                roomValidationText.text = "A table has been detected, but it is too small. Please configure your space setup in Oculus settings to include a table at least " + minimumTableLength + " by " + minimumTableWidth + " metres. Alternatively, you may create a virtual table if there are no suitable tables available.";
-            }
+            tableIsLongEnough = true;
+            Debug.LogWarning(tableSize.x);
         }
-        Debug.Log("There are " + tables.Count + " tables in your room.");
+        else
+        {
+            tableIsLongEnough = false;
+        }
+
+        if (tableSize.y > minimumTableWidth)
+        {
+            tableIsWideEnough = true;
+            Debug.LogWarning(tableSize.y);
+        }
+        else
+        {
+            tableIsWideEnough = false;
+        }
     }
 
     public List<MRUKAnchor> GetAllTables(MRUKRoom room)
@@ -75,9 +82,48 @@ public class RoomValidator : MonoBehaviour
                 tables.Add(anchor);
             }
         }
-
+        Debug.Log("There are " + tables.Count + " tables in your room.");
         return tables;
     }
 
+    //Determines the area of each table in a list of anchors and returns the largest anchor
+    public MRUKAnchor GetLargestTable(List<MRUKAnchor> tables)
+    {
+        MRUKAnchor largestTable = tables[0];
+        float largestTableArea = 0;
 
+        foreach (MRUKAnchor table in tables)
+        {
+            Vector2 tableSize = table.PlaneRect.Value.size;
+            float tableArea = tableSize.x * tableSize.y;
+
+            if (tableArea > largestTableArea)
+            {
+                largestTable = table;
+            }
+        }
+        return largestTable;
+    }
+
+    //Updated a specified text field depending on whether the room has a table, and is of a suitable size
+    public void UpdateValidationGUIText(bool roomHasTable, bool tableLongEnough, bool tableWideEnough)
+    {
+        if (!roomHasTable)
+        {
+            roomValidationText.text = "No table detected in your environment.\n\n Please configure your space setup in Oculus settings to include a table at least " + minimumTableLength + " by " + minimumTableWidth + " metres.";
+            continueButton.enabled = false;
+        }
+        else
+        {
+            if (tableLongEnough && tableWideEnough)
+            {
+                roomValidationText.text = "A suitable table has been detected in your room! Press the button below to begin the simulation.";
+            }
+            else
+            {
+                roomValidationText.text = "A table has been detected, but it is too small. Please configure your space setup in Oculus settings to include a table at least " + minimumTableLength + " by " + minimumTableWidth + " metres.";
+                continueButton.enabled = false;
+            }
+        }
+    }
 }

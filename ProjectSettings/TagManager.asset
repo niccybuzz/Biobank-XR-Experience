@@ -9,6 +9,13 @@ TagManager:
   - GlovedHand
   - Blood
   - Instructions
+  - GloveBoxHand
+  - SplitBlood
+  - TestTube
+  - Stage2UIPanel
+  - PointableCanvas
+  - LidTrigger
+  - MainUIPanel
   layers:
   - Default
   - TransparentFX
