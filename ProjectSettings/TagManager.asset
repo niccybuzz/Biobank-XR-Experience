@@ -7,6 +7,15 @@ TagManager:
   - SamplesInfoPanel
   - HandVisual
   - GlovedHand
+  - Blood
+  - Instructions
+  - GloveBoxHand
+  - SplitBlood
+  - TestTube
+  - Stage2UIPanel
+  - PointableCanvas
+  - LidTrigger
+  - MainUIPanel
   layers:
   - Default
   - TransparentFX
@@ -15,7 +24,7 @@ TagManager:
   - Water
   - UI
   - GloveBox
-  - 
+  - Test Tubes
   - 
   - 
   - 
