@@ -18,6 +18,8 @@ TagManager:
   - MainUIPanel
   - PipetteInstructions
   - HoveringPipetteController
+  - Plasma
+  - Tip
   layers:
   - Default
   - TransparentFX

@@ -34,7 +34,7 @@ public class InstructionsPanelManager : MonoBehaviour
     public GameObject closeCentrifugeInstructionBorder;
     public GameObject centrifugeButtonPressedBorder;
     public GameObject pipettePickedUpBorder;
-    public GameObject bloodTubePickedUpBorder;
+    public GameObject splitBloodPickedUpBorder;
     public GameObject plasmaDrawnBorder;
 
     //Audio
@@ -64,11 +64,9 @@ public class InstructionsPanelManager : MonoBehaviour
             closeCentrifugeInstructionBorder.SetActive(true);
         }
     }
-
+    //Checking if there are 2 tubes in the centrifuge slot. This variable is modified by the "centrifuge socket controller" class
     public void UpdateTubesInSockets(int numTubes)
     {
-        //Checking if there are 2 tubes in the centrifuge slot. This variable is modified by the "centrifuge socket controller" class
-        Debug.LogWarning(numTubes);
         //Opening the second set of 3 instructions panels after a short delay
         if (numTubes == 2 && isWearingGloves &&!stageOneComplete)
         {
@@ -87,7 +85,7 @@ public class InstructionsPanelManager : MonoBehaviour
 
     public void PickUpPipette(bool isHeld)
     {
-        if (isHeld)
+        if (isHeld && stageOneComplete)
         {
             pipettePickedUpBorder.SetActive(true);
             if (!pipetteAudioHasPlayed)
@@ -101,11 +99,11 @@ public class InstructionsPanelManager : MonoBehaviour
         }
     }
 
-    public void PickUpBloodTube(bool isHeld)
+    public void PickUpSplitBlood(bool isHeld)
     {
-        if (isHeld)
+        if (isHeld && stageOneComplete)
         {
-            bloodTubePickedUpBorder.SetActive(true);
+            splitBloodPickedUpBorder.SetActive(true);
             if (!bloodTubeAudioHasPlayed)
             {
                 UIAudio.Play();
@@ -114,13 +112,13 @@ public class InstructionsPanelManager : MonoBehaviour
         }
         else
         {
-            bloodTubePickedUpBorder.SetActive(false);
+            splitBloodPickedUpBorder.SetActive(false);
         }
     }
 
     public void DrawPlasma()
     {
-        if (plasmaDrawn)
+        if (plasmaDrawn && stageOneComplete)
         {
             plasmaDrawnBorder.SetActive(true);
         }
@@ -146,7 +144,6 @@ public class InstructionsPanelManager : MonoBehaviour
             centrifugeButtonPressedBorder.SetActive(true);
             UIAudio.Play();
             StartCoroutine(ShowPipetteInstructionsFacePanel());
-            Debug.LogWarning("Co routine should be triggered here");
             stageOneComplete = true;
         }
     }
@@ -164,7 +161,6 @@ public class InstructionsPanelManager : MonoBehaviour
 
     IEnumerator ShowPipetteInstructionsFacePanel()
     {
-        Debug.LogWarning("Triggered");
         // Wait for 1 second
         yield return new WaitForSeconds(10);
 
@@ -175,7 +171,6 @@ public class InstructionsPanelManager : MonoBehaviour
         {
             foreach (var gameobj in FacePanels)
             {
-                Debug.LogWarning(gameobj.name);
                 gameobj.SetActive(true);
                 
             }
