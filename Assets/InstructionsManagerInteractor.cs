@@ -6,16 +6,16 @@ public class InstructionsManagerInteractor : MonoBehaviour
 {
     public InstructionsPanelManager instructionsManager;
 
-    public void PressButton()
+    public void PressCentrifugeButton()
     {
-        instructionsManager.centrifugeButtonPressed = true;
-        instructionsManager.CheckProgress();
+        instructionsManager.PressCentrifugeButton();
     }
 
     public void PutOnGloves()
     {
-        instructionsManager.isWearingGloves = true;
-        instructionsManager.CheckProgress();
+        instructionsManager.PutOnGloves(true);
     }
+
+
 
 }

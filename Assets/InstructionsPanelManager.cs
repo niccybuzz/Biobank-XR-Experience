@@ -1,4 +1,5 @@
 using Oculus.Interaction;
+using Oculus.VoiceSDK.UX;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.XR.CoreUtils;
@@ -11,15 +12,19 @@ public class InstructionsPanelManager : MonoBehaviour
     public bool centrifugeIsOpen = false;
     public bool twoTubesInCentrifuge = false;
     public bool centrifugeButtonPressed = false;
+    public bool pipettePickedUp = false;
+    public bool splitBloodTubePickedUp = false;
+    public bool plasmaDrawn = false;
+    public bool stageOneComplete = false;
 
     //Centrifuge controller
     public CentrifugeController centrifugeController;
 
     //Panel groups
-    public GameObject firstInstructionsPanel;
-    public GameObject secondInstructionsPanel;
-    private GameObject thirdInstructionsPanel;
-    private GameObject[] mainUIPanels;
+    public GameObject firstThreeWallPanels;
+    public GameObject secondThreeWallPanels;
+    public GameObject pipetteInstructionsWallPanel;
+    private GameObject[] FacePanels;
 
 
     //Borders;
@@ -28,15 +33,20 @@ public class InstructionsPanelManager : MonoBehaviour
     public GameObject placeTubesInCentrifugeBorder;
     public GameObject closeCentrifugeInstructionBorder;
     public GameObject centrifugeButtonPressedBorder;
+    public GameObject pipettePickedUpBorder;
+    public GameObject bloodTubePickedUpBorder;
+    public GameObject plasmaDrawnBorder;
 
     //Audio
     public AudioSource UIAudio;
     public AudioSource stageCompleteAudio;
-    public bool audioHasPlayed = false;
+    private bool pipetteAudioHasPlayed = false;
+    private bool bloodTubeAudioHasPlayed = false;
 
     public void Start()
     {
-        mainUIPanels = GameObject.FindGameObjectsWithTag("MainUIPanel");
+        FacePanels = GameObject.FindGameObjectsWithTag("MainUIPanel");
+
     }
 
     // Update is called once per frame. This is required for things such as the centrifuge hinge angle which is frequently updated
@@ -50,92 +60,132 @@ public class InstructionsPanelManager : MonoBehaviour
         }
         else
         {
+            openCentrifugeBorder.SetActive(false);
             closeCentrifugeInstructionBorder.SetActive(true);
         }
-
-
     }
 
-    //This is called once every time one of the booleans is updated, instead of putting in Update and checking every frame.
-    public void CheckProgress()
+    public void UpdateTubesInSockets(int numTubes)
     {
-        //Checking if gloves are on to activate first border
-        if (isWearingGloves)
-        {
-            putOnGlovesBorder.SetActive(true);
-            UIAudio.Play();
-        }
-
         //Checking if there are 2 tubes in the centrifuge slot. This variable is modified by the "centrifuge socket controller" class
-        if (twoTubesInCentrifuge)
+        Debug.LogWarning(numTubes);
+        //Opening the second set of 3 instructions panels after a short delay
+        if (numTubes == 2 && isWearingGloves &&!stageOneComplete)
         {
             placeTubesInCentrifugeBorder.SetActive(true);
             UIAudio.Play();
+            StartCoroutine(ShowSecondInstructionsWallPanel());
         }
 
-        //Opening the second set of 3 instructions panels after a short delay
-        if (isWearingGloves && centrifugeIsOpen && twoTubesInCentrifuge)
-        {
-            StartCoroutine(OpenSecondInstructionsPanel());
-            UIAudio.Play();
-            audioHasPlayed = false;
-        }
-
-        //Activating the 5th final if conditions are met
-        if (centrifugeButtonPressed && twoTubesInCentrifuge)
-        {
-            centrifugeButtonPressedBorder.SetActive(true);
-            UIAudio.Play();
-        }
-
-        //
-        if (centrifugeButtonPressed && !centrifugeIsOpen && twoTubesInCentrifuge)
-        {
-            StartCoroutine(OpenThirdInstructionsPanel());
-        }
-    }
-
-    //Plays a bleep sound the first time the centrifuge has been opened
-    public void PlayUIAudioOneTime()
-    {
-        if (!audioHasPlayed)
+        else if (numTubes == 2 && !isWearingGloves)
         {
             UIAudio.Play();
-            audioHasPlayed = true;
+            placeTubesInCentrifugeBorder.SetActive(true);
         }
+
     }
 
-    IEnumerator OpenSecondInstructionsPanel()
+    public void PickUpPipette(bool isHeld)
     {
-        // Wait for 1 second
-        yield return new WaitForSeconds(2);
-
-        // Deactivate firstInstructionsPanel and activate secondInstructionsPanel
-        firstInstructionsPanel.SetActive(false);
-        secondInstructionsPanel.SetActive(true);
-    }
-
-
-    IEnumerator OpenThirdInstructionsPanel()
-    {
-
-        // Wait for 1 second
-        yield return new WaitForSeconds(8);
-
-        // Deactivate firstInstructionsPanel and activate secondInstructionsPanel
-        secondInstructionsPanel.SetActive(false);
-
-        if (mainUIPanels != null)
+        if (isHeld)
         {
-            foreach (var gameobj in mainUIPanels)
+            pipettePickedUpBorder.SetActive(true);
+            if (!pipetteAudioHasPlayed)
             {
-                gameobj.SetActive(true);
+                UIAudio.Play();
+                pipetteAudioHasPlayed = true;
             }
         } else
         {
+            pipettePickedUpBorder.SetActive(false);
+        }
+    }
+
+    public void PickUpBloodTube(bool isHeld)
+    {
+        if (isHeld)
+        {
+            bloodTubePickedUpBorder.SetActive(true);
+            if (!bloodTubeAudioHasPlayed)
+            {
+                UIAudio.Play();
+                bloodTubeAudioHasPlayed = true;
+            }
+        }
+        else
+        {
+            bloodTubePickedUpBorder.SetActive(false);
+        }
+    }
+
+    public void DrawPlasma()
+    {
+        if (plasmaDrawn)
+        {
+            plasmaDrawnBorder.SetActive(true);
+        }
+    }
+
+
+
+    public void PutOnGloves(bool isWearing)
+    {
+        if (isWearing)
+        {
+            isWearingGloves = true;
+            putOnGlovesBorder.SetActive(true);
+            UIAudio.Play();
+        } 
+    }
+
+    public void PressCentrifugeButton()
+    {
+        //Activating the 5th final if conditions are met
+        if (centrifugeController.numberOfTubesInSockets >= 2)
+        {
+            centrifugeButtonPressedBorder.SetActive(true);
+            UIAudio.Play();
+            StartCoroutine(ShowPipetteInstructionsFacePanel());
+            Debug.LogWarning("Co routine should be triggered here");
+            stageOneComplete = true;
+        }
+    }
+
+    IEnumerator ShowSecondInstructionsWallPanel()
+    {
+        // Wait for 1 second
+        yield return new WaitForSeconds(1);
+
+        // Deactivate firstInstructionsPanel and activate secondInstructionsPanel
+        firstThreeWallPanels.SetActive(false);
+        secondThreeWallPanels.SetActive(true);
+    }
+
+
+    IEnumerator ShowPipetteInstructionsFacePanel()
+    {
+        Debug.LogWarning("Triggered");
+        // Wait for 1 second
+        yield return new WaitForSeconds(10);
+
+        // Deactivate wall panel and activate face panels
+        secondThreeWallPanels.SetActive(false);
+
+        if (FacePanels != null)
+        {
+            foreach (var gameobj in FacePanels)
+            {
+                Debug.LogWarning(gameobj.name);
+                gameobj.SetActive(true);
+                
+            }
+        }
+
+        else
+        {
             Debug.LogWarning("Can't find panel");
         }
-        
+
 
         stageCompleteAudio.Play();
     }

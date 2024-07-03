@@ -12,20 +12,20 @@ public class CentrifugeSocketController : MonoBehaviour
     public void IncrementNumberOfTubes()
     {
         controller.numberOfTubesInSockets++;
-        if (controller.numberOfTubesInSockets == 2)
+        int tubesInSockets = controller.numberOfTubesInSockets;
+        if (tubesInSockets >= 2)
         {
-            instructionsManager.twoTubesInCentrifuge = true;
-            instructionsManager.CheckProgress();
+            instructionsManager.UpdateTubesInSockets(tubesInSockets);
         }
+        
+
     }
 
     public void DecrementNumberOfTubes()
     {
         controller.numberOfTubesInSockets--;
-        if (controller.numberOfTubesInSockets < 2)
-        {
-            instructionsManager.twoTubesInCentrifuge = false;
-            instructionsManager.CheckProgress();
-        }
+        int tubesInSockets = controller.numberOfTubesInSockets;
+        Debug.Log(tubesInSockets);
+        instructionsManager.UpdateTubesInSockets(tubesInSockets);
     }
 }

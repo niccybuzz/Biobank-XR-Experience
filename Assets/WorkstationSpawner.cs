@@ -33,10 +33,10 @@ public class WorkstationSpawner : MonoBehaviour
         room = MRUK.Instance.GetCurrentRoom();
         List<MRUKAnchor> tables = Validator.GetAllTables(room);
         MRUKAnchor largestTable = Validator.GetLargestTable(tables);
-        SpawnObjectOnTable(largestTable);
+        SpawnObjectOnTable2(largestTable);
     }
 
-    private void SpawnObjectOnTable(MRUKAnchor table)
+/*    private void SpawnObjectOnTable(MRUKAnchor table)
     {
         Vector2 tableSurface = table.PlaneRect.Value.size;
         Vector3 tableCenter = table.transform.position;
@@ -58,6 +58,23 @@ public class WorkstationSpawner : MonoBehaviour
             Debug.LogWarning("Prefab rotated to face player");
           spawnedObject.transform.Rotate(Vector3.up, 180f);
         }
+
+        spawnedWorkstation = spawnedObject;
+    }*/
+
+    private void SpawnObjectOnTable2(MRUKAnchor table)
+    {
+        Vector3 tableCenter = table.transform.position;
+        Vector3 spawnPosition = new Vector3(tableCenter.x, tableCenter.y + prefabSpawnClearance, tableCenter.z);
+
+        // Get table's rotation
+        Quaternion tableRotation = table.transform.rotation;
+        Vector3 tableRotationEuler = tableRotation.eulerAngles;
+
+        // Set the rotation to align with the table's rotation
+        Quaternion spawnRotation = Quaternion.Euler(tableRotationEuler.x + 90, tableRotationEuler.y, tableRotationEuler.z);
+
+        GameObject spawnedObject = Instantiate(prefabToCreate, spawnPosition, spawnRotation);
 
         spawnedWorkstation = spawnedObject;
     }

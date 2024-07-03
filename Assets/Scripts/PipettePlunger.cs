@@ -11,6 +11,7 @@ public class PipettePlunger : MonoBehaviour
     private bool isHeld = false;
     public BloodVolumeModifier blood;
     public TipCollisionDetector tip;
+    public InstructionsPanelManager instructionManager;
 
     private void Start()
     {
@@ -21,11 +22,13 @@ public class PipettePlunger : MonoBehaviour
     {
         
         isHeld = true;
+        instructionManager.PickUpPipette(true);
     }
     public void OnDrop()
     {
 
         isHeld = false;
+        instructionManager.PickUpPipette(false);
     }
 
     void Update()

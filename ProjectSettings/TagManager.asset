@@ -16,6 +16,8 @@ TagManager:
   - PointableCanvas
   - LidTrigger
   - MainUIPanel
+  - PipetteInstructions
+  - HoveringPipetteController
   layers:
   - Default
   - TransparentFX

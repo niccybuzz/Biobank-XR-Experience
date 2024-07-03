@@ -76,7 +76,7 @@ public class CentrifugeController : MonoBehaviour
             StartCoroutine(SpinForDuration());
             SplitBlood(bloodTubeSockets);
             centrifugeAudio.Play();
-            instructionsPanelManager.CheckProgress();
+            instructionsPanelManager.PressCentrifugeButton();
         }
     }
 
