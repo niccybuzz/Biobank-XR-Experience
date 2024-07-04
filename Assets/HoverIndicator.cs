@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HandHover : MonoBehaviour
+public class HoverIndicator : MonoBehaviour
 {
     public float hoverSpeed = 1.0f;
     public float hoverHeight = 1.0f;

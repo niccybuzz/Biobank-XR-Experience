@@ -16,6 +16,10 @@ TagManager:
   - PointableCanvas
   - LidTrigger
   - MainUIPanel
+  - PipetteInstructions
+  - HoveringPipetteController
+  - Plasma
+  - Tip
   layers:
   - Default
   - TransparentFX

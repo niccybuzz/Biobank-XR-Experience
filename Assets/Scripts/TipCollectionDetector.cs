@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class TipCollisionDetector : MonoBehaviour
 {
-    public bool isInContactWithBlood = false;
+/*    public bool isInContactWithPlasma = false;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Blood"))
+        if (other.CompareTag("Plasma"))
         {
-            Debug.Log("Tip in contact with blood");
-            isInContactWithBlood = true;
+            Debug.Log("Tip in contact with plasma");
+            isInContactWithPlasma = true;
         }
     }
 
@@ -19,8 +19,8 @@ public class TipCollisionDetector : MonoBehaviour
     {
         if (other.CompareTag("Blood"))
         {
-            Debug.Log("Tip in no longer in contact with blood");
-            isInContactWithBlood = false;
+            Debug.Log("Tip in no longer in contact with plasma");
+            isInContactWithPlasma = false;
         }
-    }
+    }*/
 }

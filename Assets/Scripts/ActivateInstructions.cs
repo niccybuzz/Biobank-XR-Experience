@@ -5,18 +5,34 @@ using UnityEngine;
 public class ActivateInstructions : MonoBehaviour
 {
     private GameObject[] instructionsPanels;
-    private GameObject hoveringHand;
+    private GameObject boxHoveringHand;
+    private GameObject pipetteHoveringHand;
     public void ActivateInstructionsPanel()
     {
 
         instructionsPanels = GameObject.FindGameObjectsWithTag("Instructions");
-        hoveringHand = GameObject.FindGameObjectWithTag("GloveBoxHand");
+        boxHoveringHand = GameObject.FindGameObjectWithTag("GloveBoxHand");
 
         foreach (var panel in instructionsPanels)
         {
             panel.GetComponent<Canvas>().enabled = true;
         }
-        hoveringHand.GetComponent<SkinnedMeshRenderer>().enabled = true;
+        boxHoveringHand.GetComponent<SkinnedMeshRenderer>().enabled = true;
+
+    }
+
+    public void ActivateSecondInstructionsPanel()
+    {
+
+        instructionsPanels = GameObject.FindGameObjectsWithTag("PipetteInstructions");
+        Debug.LogWarning(instructionsPanels.Length);
+        pipetteHoveringHand = GameObject.FindGameObjectWithTag("HoveringPipetteController");
+
+        foreach (var panel in instructionsPanels)
+        {
+            panel.GetComponent<Canvas>().enabled = true;
+        }
+        pipetteHoveringHand.GetComponent<SkinnedMeshRenderer>().enabled = true;
 
     }
 }
