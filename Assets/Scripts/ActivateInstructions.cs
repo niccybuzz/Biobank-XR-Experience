@@ -25,7 +25,6 @@ public class ActivateInstructions : MonoBehaviour
     {
 
         instructionsPanels = GameObject.FindGameObjectsWithTag("PipetteInstructions");
-        Debug.LogWarning(instructionsPanels.Length);
         pipetteHoveringHand = GameObject.FindGameObjectWithTag("HoveringPipetteController");
 
         foreach (var panel in instructionsPanels)

@@ -17,15 +17,12 @@ public class CentrifugeSocketController : MonoBehaviour
         {
             instructionsManager.UpdateTubesInSockets(tubesInSockets);
         }
-        
-
     }
 
     public void DecrementNumberOfTubes()
     {
         controller.numberOfTubesInSockets--;
         int tubesInSockets = controller.numberOfTubesInSockets;
-        Debug.Log(tubesInSockets);
         instructionsManager.UpdateTubesInSockets(tubesInSockets);
     }
 }

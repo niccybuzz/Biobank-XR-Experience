@@ -13,7 +13,7 @@ public class InstructionsManagerInteractor : MonoBehaviour
 
     public void PutOnGloves()
     {
-        instructionsManager.PutOnGloves(true);
+        instructionsManager.PutOnGloves();
     }
 
 

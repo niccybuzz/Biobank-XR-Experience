@@ -2,7 +2,6 @@ using Oculus.Interaction;
 using Oculus.VoiceSDK.UX;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.XR.CoreUtils;
 using UnityEngine;
 
 public class InstructionsPanelManager : MonoBehaviour
@@ -24,6 +23,7 @@ public class InstructionsPanelManager : MonoBehaviour
     public GameObject firstThreeWallPanels;
     public GameObject secondThreeWallPanels;
     public GameObject pipetteInstructionsWallPanel;
+    public GameObject dispensePlasmaWallPanel;
     private GameObject[] FacePanels;
 
 
@@ -118,28 +118,25 @@ public class InstructionsPanelManager : MonoBehaviour
 
     public void DrawPlasma()
     {
-        if (plasmaDrawn && stageOneComplete)
-        {
-            plasmaDrawnBorder.SetActive(true);
-        }
+        plasmaDrawnBorder.SetActive(true);
+        StartCoroutine(ShowDispensePlasmaInstructions());
     }
 
 
 
-    public void PutOnGloves(bool isWearing)
+    public void PutOnGloves()
     {
-        if (isWearing)
-        {
+
             isWearingGloves = true;
             putOnGlovesBorder.SetActive(true);
             UIAudio.Play();
-        } 
+
     }
 
     public void PressCentrifugeButton()
     {
         //Activating the 5th final if conditions are met
-        if (centrifugeController.numberOfTubesInSockets >= 2)
+        if (centrifugeController.numberOfTubesInSockets >= 2 && !stageOneComplete)
         {
             centrifugeButtonPressedBorder.SetActive(true);
             UIAudio.Play();
@@ -183,5 +180,15 @@ public class InstructionsPanelManager : MonoBehaviour
 
 
         stageCompleteAudio.Play();
+    }
+
+    IEnumerator ShowDispensePlasmaInstructions()
+    {
+        // Wait for 1 second
+        yield return new WaitForSeconds(1);
+
+        // Deactivate wall panel and activate face panels
+        pipetteInstructionsWallPanel.SetActive(false);
+        dispensePlasmaWallPanel.SetActive(true);
     }
 }

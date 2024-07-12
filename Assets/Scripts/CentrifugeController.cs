@@ -1,13 +1,11 @@
-using Newtonsoft.Json.Bson;
+
 using Oculus.Interaction;
-using System;
+
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
-using Unity.XR.CoreUtils;
+
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class CentrifugeController : MonoBehaviour
 {
@@ -86,35 +84,15 @@ public class CentrifugeController : MonoBehaviour
 
         foreach (GameObject tube in bloodTubes)
         {
-            Transform tubeTransform = tube.transform;
-            Transform wholeBlood = tubeTransform.Find("WholeBlood");
-            Transform splitBlood = tubeTransform.Find("SplitBlood");
-
-            if (wholeBlood != null)
-            {
-                wholeBlood.gameObject.SetActive(false);
-            }
-            else
-            {
-                Debug.LogWarning("Whole blood not found");
-            }
-
-            if (splitBlood != null)
-            {
-                splitBlood.gameObject.SetActive(true);
-            }
-            else
-            {
-                Debug.LogWarning("Split blood not found");
-            }
+            tube.GetComponent<TestTubeManager>().SplitBlood();
         }
     }
 
     //Iterates through each blood tube inside the centrifuge when it is spun, and changes the whole blood for split blood
-    private List<GameObject> GetAllBloodTubesInCentrifuge(SnapInteractable[] bloodTubeSockets)
+    public List<GameObject> GetAllBloodTubesInCentrifuge(SnapInteractable[] bloodTubeSockets)
     {
         List<GameObject> bloodTubes = new();
-
+        
         //iterating through each of the 6 Snap Interactables, one in each centrifuge socket
         foreach (SnapInteractable socket in bloodTubeSockets)
         {

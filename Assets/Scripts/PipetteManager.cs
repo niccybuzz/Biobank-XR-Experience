@@ -54,12 +54,6 @@ public class PipetteManager : MonoBehaviour
             ResetPlunger();
         }
 
-        if (isPressed && isHeld && isFull)
-        {
-            plasmaLiquidParticules.Play();
-            isFull = false;
-        }
-
     }
 
     void MovePlungerDown()
@@ -67,16 +61,6 @@ public class PipetteManager : MonoBehaviour
         Vector3 targetPosition = plunger_InitialPosition - new Vector3(0, moveDistance, 0);
         plunger.transform.localPosition = Vector3.Lerp(plunger.transform.localPosition, targetPosition, moveSpeed * Time.deltaTime);
 
-/*        if (tip.isInContactWithPlasma)
-        {
-            Debug.Log("Animation should begin now");
-            plasma.StartAnimation();
-            instructionManager.DrawPlasma();
-        }
-        else
-        {
-            Debug.Log("Error detecting collision");
-        }*/
     }
 
     void ResetPlunger()
