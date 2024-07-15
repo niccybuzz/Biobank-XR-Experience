@@ -8,7 +8,7 @@ public class InstructionsPanelManager : MonoBehaviour
 {
     //booleans for checking progress
     public bool isWearingGloves = false;
-    public bool centrifugeIsOpen = false;
+    // public bool centrifugeIsOpen = false;
     public bool twoTubesInCentrifuge = false;
     public bool centrifugeButtonPressed = false;
     public bool pipettePickedUp = false;
@@ -52,7 +52,7 @@ public class InstructionsPanelManager : MonoBehaviour
     // Update is called once per frame. This is required for things such as the centrifuge hinge angle which is frequently updated
     void Update()
     {
-        centrifugeIsOpen = centrifugeController.centrifugeIsOpen;
+/*        centrifugeIsOpen = centrifugeController.centrifugeIsOpen;
         if (centrifugeIsOpen)
         {
             openCentrifugeBorder.SetActive(true);
@@ -62,7 +62,7 @@ public class InstructionsPanelManager : MonoBehaviour
         {
             openCentrifugeBorder.SetActive(false);
             closeCentrifugeInstructionBorder.SetActive(true);
-        }
+        }*/
     }
     //Checking if there are 2 tubes in the centrifuge slot. This variable is modified by the "centrifuge socket controller" class
     public void UpdateTubesInSockets(int numTubes)
@@ -133,7 +133,7 @@ public class InstructionsPanelManager : MonoBehaviour
 
     }
 
-    public void PressCentrifugeButton()
+/*    public void PressCentrifugeButton()
     {
         //Activating the 5th final if conditions are met
         if (centrifugeController.numberOfTubesInSockets >= 2 && !stageOneComplete)
@@ -143,7 +143,7 @@ public class InstructionsPanelManager : MonoBehaviour
             StartCoroutine(ShowPipetteInstructionsFacePanel());
             stageOneComplete = true;
         }
-    }
+    }*/
 
     IEnumerator ShowSecondInstructionsWallPanel()
     {

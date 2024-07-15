@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TestTubeManager : MonoBehaviour
 {
-    public InstructionsPanelManager instructionsManager;
+    public InstructionsPanelManager2 instructionsManager;
     public bool lidOn = true;
     public bool bloodSplit = false;
     public GameObject wholeBlood;
@@ -21,16 +21,17 @@ public class TestTubeManager : MonoBehaviour
     
     public void PickUpBloodTube(bool isHeld)
     {
-        if (bloodSplit)
-        {
-            instructionsManager.PickUpSplitBlood(isHeld);
-        }
+
     }
 
     public void RemoveLid()
     {
 
         lidOn = false;
+        if (bloodSplit)
+        {
+            instructionsManager.NextPanel(1f);
+        }
     }
 
     public void PutLidOn()
