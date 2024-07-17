@@ -6,22 +6,20 @@ using UnityEngine;
 public class TestTubeManager : MonoBehaviour
 {
     public InstructionsPanelManager2 instructionsManager;
-    public bool lidOn = true;
-    public bool bloodSplit = false;
+    private bool lidOn = true;
+    private bool bloodSplit = false;
     public GameObject wholeBlood;
     public GameObject splitBlood;
 
-    // Start is called before the first frame update
+    public bool BloodSplit { get => bloodSplit; set => bloodSplit = value; }
+    public bool LidOn { get => lidOn; set => lidOn = value; }
+
+    
     public void SplitBlood()
     {
         bloodSplit = true;
         wholeBlood.SetActive(false);
         splitBlood.SetActive(true);
-    }
-    
-    public void PickUpBloodTube(bool isHeld)
-    {
-
     }
 
     public void RemoveLid()

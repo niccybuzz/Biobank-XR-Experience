@@ -12,6 +12,10 @@ public class InstructionsPanelManager2 : MonoBehaviour
  
     private bool stepComplete = false;
 
+    public bool GetStepComplete()
+    {
+        return stepComplete;
+    }
     public void Start()
     {
         bleep = GameObject.Find("UIHappyBleep").GetComponent<AudioSource>();

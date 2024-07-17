@@ -11,7 +11,8 @@ public class PipetteManager : MonoBehaviour
     public bool isPressed = false;
     public bool isHeld = false;
     public bool isFull = false;
-    public InstructionsPanelManager instructionManager;
+    public InstructionsPanelManager2 previousStep;
+    public InstructionsPanelManager2 instructionManager;
     public ParticleSystem plasmaLiquidParticules;
 
     private void Start()
@@ -23,13 +24,17 @@ public class PipetteManager : MonoBehaviour
     {
         
         isHeld = true;
-        instructionManager.PickUpPipette(true);
+        if (previousStep.GetStepComplete())
+        {
+            instructionManager.NextPanel(1f);
+        }
+        
     }
     public void OnDrop()
     {
 
         isHeld = false;
-        instructionManager.PickUpPipette(false);
+ 
     }
 
     void Update()
