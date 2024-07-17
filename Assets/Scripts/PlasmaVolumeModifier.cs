@@ -40,7 +40,7 @@ public class PlasmaVolumeModifier : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (tipInTriggerZone && pipette.isPressed && !pipette.isFull && testTube.bloodSplit && !testTube.lidOn)
+        if (tipInTriggerZone && pipette.isPressed && !pipette.isFull && testTube.BloodSplit && !testTube.LidOn)
         {
             StartDrawPlasma();
         }

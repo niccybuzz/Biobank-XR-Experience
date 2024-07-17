@@ -15,7 +15,7 @@ public class EmptyTubeManager : MonoBehaviour
     private SkinnedMeshRenderer skinnedMeshRenderer;
     public PipetteManager pipette;
     //private bool tipInTriggerZone = false;
-    public InstructionsPanelManager instructionsManager;
+    public InstructionsPanelManager2 instructionsManager;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +57,7 @@ public class EmptyTubeManager : MonoBehaviour
         animationTimer = animationDuration;
         pipette.isFull = false;
         skinnedMeshRenderer.enabled = true;
+        instructionsManager.NextPanel(1f);
     }
 
     // Update is called once per frame

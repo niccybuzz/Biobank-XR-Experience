@@ -6,25 +6,17 @@ using UnityEngine;
 public class CentrifugeAudioTrigger : MonoBehaviour
 {
     public AudioSource UIAudio;
-    private bool openAudioHasPlayed = false;
-    private bool closeAudioHasPlayed = false;
-
     public CentrifugeController centrifuge;
+
+
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
- 
 
         if (other.CompareTag("LidTrigger"))
         {
             ToggleTubeGrabInteractions(true);
-            if (!openAudioHasPlayed)
-            {
-
-                UIAudio.Play();
-                openAudioHasPlayed = true;
-            }
-            
+            centrifuge.OpenCentrifuge();
         }
     }
 
@@ -33,11 +25,7 @@ public class CentrifugeAudioTrigger : MonoBehaviour
         if (other.CompareTag("LidTrigger"))
         {
             ToggleTubeGrabInteractions(false);
-            if (!closeAudioHasPlayed)
-            {
-                UIAudio.Play();
-                closeAudioHasPlayed = true;
-            }
+            centrifuge.CloseCentrifuge();
         }
     }
 

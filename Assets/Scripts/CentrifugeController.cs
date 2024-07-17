@@ -9,35 +9,40 @@ using UnityEngine;
 
 public class CentrifugeController : MonoBehaviour
 {
-
-    public float spinDuration = 5.0f; // Total duration of the spinning motion
+    //Variables for spinning the centrifuge
+    public float spinDuration = 10.0f; // Total duration of the spinning motion
     public float maxSpinSpeed = 3600.0f; // Maximum speed of rotation in degrees per second
     public float accelerationTime = 1.0f; // Time to accelerate to max speed in seconds
+    
 
+    //Variables for getting various parts of the centrifuge including lid, sockets, etc
     public Transform centralPiece;
     public GameObject lid;
     private List<GameObject> bloodTubes;
     public SnapInteractable[] bloodTubeSockets;
     public PokeInteractable centrifugeButton;
+    private int numberOfTubesInSockets = 0;
 
-    public InstructionsPanelManager instructionsPanelManager;
+    //Instructions panel interactors
+    public InstructionsPanelManager2 openCentrifugePanel;
+    public InstructionsPanelManager2 tubesInCentrifugePanel;
+    public InstructionsPanelManager2 closeCentrifugePanel;
+    public InstructionsPanelManager2 pressCentrifugeButtonPanel;
 
-    public int numberOfTubesInSockets = 0;
-
-    public AudioSource UIAudio;
     public AudioSource centrifugeAudio;
 
-    public bool centrifugeIsOpen = false;
+    private bool centrifugeIsOpen = false;
     private bool isSpinning = false;
 
     public void Start()
     {
         bloodTubeSockets = GetComponentsInChildren<SnapInteractable>(true);
+        
     }
     //Checks every frame to see if the centrifuge is open or not. If open, the border is turned green
     public void Update()
     {
-        Quaternion lidRotation = lid.transform.rotation;
+/*        Quaternion lidRotation = lid.transform.rotation;
         Vector3 eulerRotation = lidRotation.eulerAngles;
 
         if (eulerRotation.x < 275f && eulerRotation.x > 100f)
@@ -47,7 +52,7 @@ public class CentrifugeController : MonoBehaviour
         else
         {
             centrifugeIsOpen = true;
-        }
+        }*/
 
 
         //disabling the spin button if the lid is open and changing the instructions border colour
@@ -61,11 +66,6 @@ public class CentrifugeController : MonoBehaviour
         }
 
         
-
-        if (numberOfTubesInSockets >= 2)
-        {
-            instructionsPanelManager.twoTubesInCentrifuge = true;
-        }
     }
     public void SpinCentrifuge()
     {
@@ -74,7 +74,28 @@ public class CentrifugeController : MonoBehaviour
             StartCoroutine(SpinForDuration());
             SplitBlood(bloodTubeSockets);
             centrifugeAudio.Play();
-            instructionsPanelManager.PressCentrifugeButton();
+            if (numberOfTubesInSockets >= 2)
+            {
+                pressCentrifugeButtonPanel.ShowFacePanels(spinDuration);
+                pressCentrifugeButtonPanel.NextPanel(spinDuration);
+                pressCentrifugeButtonPanel.CompleteStage(spinDuration);
+            }
+
+        }
+    }
+
+    public void OpenCentrifuge() {
+        centrifugeIsOpen = true;
+        openCentrifugePanel.NextPanel(1);
+    }
+
+
+    public void CloseCentrifuge()
+    {
+        centrifugeIsOpen = false;
+        if (numberOfTubesInSockets >= 2)
+        {
+            closeCentrifugePanel.NextPanel(1);
         }
     }
 
@@ -108,6 +129,20 @@ public class CentrifugeController : MonoBehaviour
 
         }
         return bloodTubes;
+    }
+
+    public void IncrementTubesInSockets()
+    {
+        numberOfTubesInSockets++;
+        if (numberOfTubesInSockets >= 2)
+        {
+            tubesInCentrifugePanel.NextPanel(1);
+        }
+    }
+
+    public void DecrementTubesInSockets()
+    {
+        numberOfTubesInSockets--;
     }
 
     private IEnumerator SpinForDuration()
