@@ -4,53 +4,70 @@ using UnityEngine;
 
 public class PipetteManager : MonoBehaviour
 {
+    //status bools
+    private bool isPressed = false;
+    private bool isHeld = false;
+    private bool isFull = false;
+
+    //variables for speed and distance of plunger moving speed
+    public GameObject plunger;
     public float moveDistance = 0.1f; // Distance the plunger moves down
     public float moveSpeed = 1.0f; // Speed of the plunger movement
-    public GameObject plunger;
+    
     private Vector3 plunger_InitialPosition;
-    public bool isPressed = false;
-    public bool isHeld = false;
-    public bool isFull = false;
+
     public InstructionsPanelManager2 previousStep;
     public InstructionsPanelManager2 instructionManager;
-    public ParticleSystem plasmaLiquidParticules;
+
+    private OVRControllerHelper leftControllerHelper;
+    private OVRControllerHelper rightControllerHelper;
+
+    public bool IsPressed { get => isPressed; set => isPressed = value; }
+    public bool IsHeld { get => isHeld; set => isHeld = value; }
+    public bool IsFull { get => isFull; set => isFull = value; }
 
     private void Start()
     {
         plunger_InitialPosition = plunger.transform.localPosition;
+        leftControllerHelper = GameObject.FindGameObjectWithTag("LeftControllerVisual").GetComponent<OVRControllerHelper>();
+        rightControllerHelper = GameObject.FindGameObjectWithTag("RightControllerVisual").GetComponent<OVRControllerHelper>();
 
     }
     public void OnGrab()
     {
         
-        isHeld = true;
-        if (previousStep.GetStepComplete())
-        {
-            instructionManager.NextPanel(1f);
-        }
-        
+        IsHeld = true;
+
+        //turning off the controller visuals when the ppette is picked up
+        leftControllerHelper.m_showState = OVRInput.InputDeviceShowState.ControllerNotInHand;
+        rightControllerHelper.m_showState = OVRInput.InputDeviceShowState.ControllerNotInHand;
+
     }
     public void OnDrop()
     {
 
-        isHeld = false;
- 
+        IsHeld = false;
+
+        //turning controller visuals back on when pipette dropped
+        leftControllerHelper.m_showState = OVRInput.InputDeviceShowState.Always;
+        rightControllerHelper.m_showState = OVRInput.InputDeviceShowState.Always;
+
     }
 
     void Update()
     {
         // Check for VR controller trigger press
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && isHeld)
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && IsHeld)
         {
-            isPressed = true;
+            IsPressed = true;
         }
-        else if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger) && isHeld)
+        else if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger) && IsHeld)
         {
-            isPressed = false;
+            IsPressed = false;
         }
 
         // Move the plunger down if the trigger is pressed
-        if (isPressed && isHeld)
+        if (IsPressed && IsHeld)
         {
             MovePlungerDown();
         }
