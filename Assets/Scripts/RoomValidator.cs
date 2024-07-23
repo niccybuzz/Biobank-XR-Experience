@@ -9,7 +9,6 @@ using UnityEngine.UI;
 public class RoomValidator : MonoBehaviour
 {
     private MRUKRoom currentRoom;
-    private string[] propertiesToCheck = { "TABLE" };
     private bool tableIsLongEnough = false;
     private bool tableIsWideEnough = false;
     public Button continueButton;
@@ -31,7 +30,7 @@ public class RoomValidator : MonoBehaviour
 
         if (currentRoom != null)
         {
-            roomHasTable = currentRoom.DoesRoomHave(propertiesToCheck);
+            roomHasTable = currentRoom.HasAllLabels(MRUKAnchor.SceneLabels.TABLE);
             if (roomHasTable)
             {
                 List<MRUKAnchor> tables = GetAllTables(currentRoom);
@@ -52,7 +51,6 @@ public class RoomValidator : MonoBehaviour
         if (tableSize.x > minimumTableLength)
         {
             tableIsLongEnough = true;
-            Debug.LogWarning(tableSize.x);
         }
         else
         {
@@ -62,7 +60,6 @@ public class RoomValidator : MonoBehaviour
         if (tableSize.y > minimumTableWidth)
         {
             tableIsWideEnough = true;
-            Debug.LogWarning(tableSize.y);
         }
         else
         {
@@ -77,12 +74,11 @@ public class RoomValidator : MonoBehaviour
         // First, collect all table anchors
         foreach (MRUKAnchor anchor in room.Anchors)
         {
-            if (anchor.AnchorLabels.Contains("TABLE"))
+            if (anchor.Label == MRUKAnchor.SceneLabels.TABLE)
             {
                 tables.Add(anchor);
             }
         }
-        Debug.Log("There are " + tables.Count + " tables in your room.");
         return tables;
     }
 

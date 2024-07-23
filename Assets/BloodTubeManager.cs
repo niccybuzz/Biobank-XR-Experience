@@ -3,18 +3,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestTubeManager : MonoBehaviour
+public class TestTubeManager : TestTube
 {
-    public InstructionsPanelManager2 instructionsManager;
-    private bool lidOn = true;
     private bool bloodSplit = false;
     public GameObject wholeBlood;
     public GameObject splitBlood;
+    public InstructionsPanelManager2 removeLidInstructions;
+    public InstructionsPanelManager2 drawPlasmaInstructions;
 
     public bool BloodSplit { get => bloodSplit; set => bloodSplit = value; }
     public bool LidOn { get => lidOn; set => lidOn = value; }
 
-    
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Tip"))
+        {
+            if (pipette.IsPressed && !lidOn && !pipette.IsFull)
+            {
+                StartDrawPlasma();
+            }
+        }
+
+    }
+
+    private void StartDrawPlasma()
+    {
+        isAnimating = true;
+        animationTimer = animationDuration;
+        pipette.IsFull = true;
+        drawPlasmaInstructions.NextPanel(1f);
+
+    }
+
     public void SplitBlood()
     {
         bloodSplit = true;
@@ -28,7 +48,7 @@ public class TestTubeManager : MonoBehaviour
         lidOn = false;
         if (bloodSplit)
         {
-            instructionsManager.NextPanel(1f);
+            removeLidInstructions.NextPanel(1f);
         }
     }
 

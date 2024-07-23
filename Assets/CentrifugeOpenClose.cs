@@ -46,10 +46,7 @@ public class CentrifugeAudioTrigger : MonoBehaviour
                 }
                 
             }
-        } else
-        {
-            Debug.LogWarning("Can't find blood tubes");
-        }
+        } 
     }
 
 }

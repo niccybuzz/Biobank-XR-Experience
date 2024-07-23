@@ -20,6 +20,9 @@ TagManager:
   - HoveringPipetteController
   - Plasma
   - Tip
+  - ControllerVisual
+  - LeftControllerVisual
+  - RightControllerVisual
   layers:
   - Default
   - TransparentFX
