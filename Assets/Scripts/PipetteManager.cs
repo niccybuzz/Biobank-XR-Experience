@@ -29,7 +29,7 @@ public class PipetteManager : MonoBehaviour
     private void Start()
     {
         plunger_InitialPosition = plunger.transform.localPosition;
-        leftControllerHelper = GameObject.FindGameObjectWithTag("LeftControllerVisual").GetComponent<OVRControllerHelper>();
+        leftControllerHelper = GameObject.FindGameObjectWithTag("LeftControllerVisuals").GetComponent<OVRControllerHelper>();
         rightControllerHelper = GameObject.FindGameObjectWithTag("RightControllerVisual").GetComponent<OVRControllerHelper>();
 
     }
@@ -41,6 +41,11 @@ public class PipetteManager : MonoBehaviour
         //turning off the controller visuals when the ppette is picked up
         leftControllerHelper.m_showState = OVRInput.InputDeviceShowState.ControllerNotInHand;
         rightControllerHelper.m_showState = OVRInput.InputDeviceShowState.ControllerNotInHand;
+
+        if (previousStep.GetStepComplete())
+        {
+            instructionManager.NextPanel(1f);
+        }
 
     }
     public void OnDrop()

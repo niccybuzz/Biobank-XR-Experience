@@ -53,7 +53,7 @@ public class TestTube : MonoBehaviour
     //Smoothly transitions from 100% weight to 0% on the final "blend shapes" frame
     private void AnimateDispensePlasma()
     {
-        Debug.LogWarning("Animate dispense plasma called");
+
         /* Time.deltaTime represents the amount of time that has passed since the last frame was rendered, varying based on framerate
          * When the animation starts, animationTimer is initialized to the total duration of the animation (e.g., 2 seconds).
          * Each frame, Time.deltaTime is subtracted from animationTimer. This means that with each passing frame, animationTimer gets closer to 0.

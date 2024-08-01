@@ -23,6 +23,8 @@ TagManager:
   - ControllerVisual
   - LeftControllerVisual
   - RightControllerVisual
+  - LeftControllerVisuals
+  - SampleBlock
   layers:
   - Default
   - TransparentFX
@@ -35,7 +37,7 @@ TagManager:
   - Tip
   - Plasma
   - Lids
-  - 
+  - Slice
   - 
   - 
   - 

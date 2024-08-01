@@ -25,6 +25,8 @@ public class EmptyTubeManager : TestTube
         pipette.IsFull = false;
         skinnedMeshRenderer.enabled = true;
         dispensePlasmaInstructions.NextPanel(1f);
+        dispensePlasmaInstructions.ShowFacePanels(1f);
+        dispensePlasmaInstructions.CompleteStage(1f);
     }
 
     public void RemoveLid()
