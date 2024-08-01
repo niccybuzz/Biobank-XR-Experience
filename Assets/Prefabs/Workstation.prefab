@@ -2854,7 +2854,7 @@ GameObject:
   - component: {fileID: 9014877723362579644}
   - component: {fileID: 8227192518937781554}
   m_Layer: 0
-  m_Name: Pick up bloodtube Body
+  m_Name: take off lid bloodtube Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3947,7 +3947,6 @@ GameObject:
   - component: {fileID: 3583732289687879272}
   - component: {fileID: 7768052460233256916}
   - component: {fileID: 3374552416105916423}
-  - component: {fileID: 3734047084293241999}
   m_Layer: 0
   m_Name: Test Tube Glass
   m_TagString: Untagged
@@ -4021,28 +4020,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3734047084293241999
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551997897895437248}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2467032880603926692, guid: 79deb2d6bbcfa324e91712f9f30fb2cc, type: 3}
 --- !u!1 &1607013309370652135
 GameObject:
   m_ObjectHideFlags: 0
@@ -7767,7 +7744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7246662562761787659
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9862,7 +9839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3260808912365607572
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12035,7 +12012,7 @@ GameObject:
   - component: {fileID: 3205199981228010218}
   - component: {fileID: 1997115753744854505}
   m_Layer: 0
-  m_Name: Pick up bloodtube Border
+  m_Name: take off lid bloodtube Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
