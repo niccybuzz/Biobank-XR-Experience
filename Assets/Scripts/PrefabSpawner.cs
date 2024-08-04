@@ -12,10 +12,13 @@ public class WorkstationSpawner : MonoBehaviour
     private float prefabSpawnClearance = 0.1f;
 
     private GameObject spawnedWorkstation;
-    public RoomValidator Validator;
+    public RoomValidator validator;
     public Camera mainCamera;
     private MRUKRoom room;
 
+    private void Start()
+    {
+    }
     private void Update()
     {
         if (spawnedWorkstation != null)
@@ -28,11 +31,16 @@ public class WorkstationSpawner : MonoBehaviour
 
     }
 
+    public void SpawnWallArt()
+    {
+
+    }
+
     public void SpawnWorkstation()
     {
         room = MRUK.Instance.GetCurrentRoom();
-        List<MRUKAnchor> tables = Validator.GetAllTables(room);
-        MRUKAnchor largestTable = Validator.GetLargestTable(tables);
+        List<MRUKAnchor> tables = validator.GetAllTables(room);
+        MRUKAnchor largestTable = validator.GetLargestTable(tables);
         SpawnObjectOnTable2(largestTable);
     }
 
