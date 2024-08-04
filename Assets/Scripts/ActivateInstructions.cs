@@ -17,8 +17,11 @@ public class ActivateInstructions : MonoBehaviour
         {
             panel.GetComponent<Canvas>().enabled = true;
         }
-        boxHoveringHand.GetComponent<SkinnedMeshRenderer>().enabled = true;
 
+        if (boxHoveringHand)
+        {
+            boxHoveringHand.GetComponent<SkinnedMeshRenderer>().enabled = true;
+        }
     }
 
     public void ActivateSecondInstructionsPanel()

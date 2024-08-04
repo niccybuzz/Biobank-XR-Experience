@@ -2662,7 +2662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabToCreate: {fileID: 4097768401924346623, guid: 93d4dbc592cfd63408a50302cfd35a2d, type: 3}
   prefabSpawnClearance: 0
-  Validator: {fileID: 1826423310}
+  validator: {fileID: 1826423310}
   mainCamera: {fileID: 1234778798}
 --- !u!4 &465578721
 Transform:
