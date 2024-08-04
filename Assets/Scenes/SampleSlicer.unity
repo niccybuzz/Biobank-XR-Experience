@@ -8244,7 +8244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabToCreate: {fileID: 4097768401924346623, guid: 9125146806f8fae499e2b7bcb314ed06, type: 3}
   prefabSpawnClearance: 0
-  Validator: {fileID: 362383084}
+  validator: {fileID: 362383084}
   mainCamera: {fileID: 1397078688}
 --- !u!1 &1115411519
 GameObject:
