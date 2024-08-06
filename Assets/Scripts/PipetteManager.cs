@@ -38,9 +38,6 @@ public class PipetteManager : MonoBehaviour
         
         IsHeld = true;
 
-        //turning off the controller visuals when the ppette is picked up
-        leftControllerHelper.m_showState = OVRInput.InputDeviceShowState.ControllerNotInHand;
-        rightControllerHelper.m_showState = OVRInput.InputDeviceShowState.ControllerNotInHand;
 
         if (previousStep.GetStepComplete())
         {

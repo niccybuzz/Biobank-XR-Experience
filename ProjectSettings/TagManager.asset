@@ -25,11 +25,12 @@ TagManager:
   - RightControllerVisual
   - LeftControllerVisuals
   - SampleBlock
+  - FridgeDoor
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - SlicerBlock
   - Water
   - UI
   - GloveBox

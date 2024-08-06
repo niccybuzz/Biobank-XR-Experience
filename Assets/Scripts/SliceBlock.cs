@@ -6,14 +6,23 @@ using UnityEngine;
 
 public class SliceBlock : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Transform spawnLocation;
+    private Vector3 spawnPosition;
+    private Quaternion spawnRotation;
+    public GameObject slice;
+    private void Start()
+    {
+        spawnPosition = spawnLocation.transform.position;
+        spawnRotation = spawnLocation.transform.rotation;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.CompareTag("SampleBlock"))
         {
-            Debug.LogWarning("Block Entered Trigger Zone");
-            GameObject childSlice = other.GetComponent<SampleBlockManager>().associatedSlice;
-            childSlice.SetActive(true);
+            Debug.Log("Instantiating associated slice.");
+            Instantiate(slice, spawnPosition, spawnRotation);
         }
     }
 }

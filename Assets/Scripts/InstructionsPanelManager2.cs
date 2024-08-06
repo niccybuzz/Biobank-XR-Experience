@@ -4,7 +4,7 @@ using UnityEngine;
 public class InstructionsPanelManager2 : MonoBehaviour
 {
     public GameObject currentPanel;
-    public GameObject confirmationBorder;
+    private GameObject confirmationBorder;
     public GameObject nextPanel;
     private AudioSource bleep;
     private AudioSource stageCompleteBleep;
@@ -18,6 +18,7 @@ public class InstructionsPanelManager2 : MonoBehaviour
     }
     public void Start()
     {
+        confirmationBorder = GameObject.Find("BS_InstructionsBorder");
         bleep = GameObject.Find("UIHappyBleep").GetComponent<AudioSource>();
         stageCompleteBleep = GameObject.Find("StageCompleteAudio").GetComponent<AudioSource>();
         FacePanels = GameObject.FindGameObjectsWithTag("MainUIPanel");
@@ -27,7 +28,7 @@ public class InstructionsPanelManager2 : MonoBehaviour
         if (!stepComplete)
         {
             bleep.Play();
-            confirmationBorder.SetActive(true);
+            confirmationBorder.GetComponent<Canvas>().enabled = true;
             StartCoroutine(ShowNextPanelCoroutine(seconds));
             stepComplete = true;
         }
@@ -46,6 +47,7 @@ public class InstructionsPanelManager2 : MonoBehaviour
     IEnumerator ShowNextPanelCoroutine(float seconds) 
     {
         yield return new WaitForSeconds(seconds);
+        confirmationBorder.GetComponent<Canvas>().enabled = false;
         currentPanel.SetActive(false);
         nextPanel.SetActive(true);
     }
