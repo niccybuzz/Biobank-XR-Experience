@@ -25,6 +25,7 @@ TagManager:
   - RightControllerVisual
   - LeftControllerVisuals
   - SampleBlock
+  - FridgeDoor
   layers:
   - Default
   - TransparentFX
