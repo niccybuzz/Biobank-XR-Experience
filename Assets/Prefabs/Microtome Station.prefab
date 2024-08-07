@@ -753,8 +753,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactorFilters: []
-  _maxInteractors: -1
-  _maxSelectingInteractors: -1
+  _maxInteractors: 1
+  _maxSelectingInteractors: 1
   _data: {fileID: 0}
   _rigidbody: {fileID: 3789140818547566806}
   _snapPoseDelegate: {fileID: 0}
@@ -2852,8 +2852,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactorFilters: []
-  _maxInteractors: -1
-  _maxSelectingInteractors: -1
+  _maxInteractors: 1
+  _maxSelectingInteractors: 1
   _data: {fileID: 0}
   _rigidbody: {fileID: 8899877116522837942}
   _snapPoseDelegate: {fileID: 0}
