@@ -19,6 +19,7 @@ public class LaptopController : MonoBehaviour
     public PopupMessage popupMessage;
     public AudioSource correctChoiceSound;
     public AudioSource wrongChoiceSound;
+    public InstructionsPanelManager2 instructionsPanelManager;
 
     public Image tabletImage;
     void Start()
@@ -79,6 +80,9 @@ public class LaptopController : MonoBehaviour
             {
                 correctChoiceSound.Play();
             }
+            instructionsPanelManager.NextPanel(1f);
+            instructionsPanelManager.ShowFacePanels(1f);
+            instructionsPanelManager.CompleteStage(1f);
 
         } else
         {

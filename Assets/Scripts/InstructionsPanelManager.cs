@@ -1,194 +1,74 @@
-using Oculus.Interaction;
-using Oculus.VoiceSDK.UX;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class InstructionsPanelManager : MonoBehaviour
+public class InstructionsPanelManager2 : MonoBehaviour
 {
-    //booleans for checking progress
-    public bool isWearingGloves = false;
-    // public bool centrifugeIsOpen = false;
-    public bool twoTubesInCentrifuge = false;
-    public bool centrifugeButtonPressed = false;
-    public bool pipettePickedUp = false;
-    public bool splitBloodTubePickedUp = false;
-    public bool plasmaDrawn = false;
-    public bool stageOneComplete = false;
-
-    //Centrifuge controller
-    public CentrifugeController centrifugeController;
-
-    //Panel groups
-    public GameObject firstThreeWallPanels;
-    public GameObject secondThreeWallPanels;
-    public GameObject pipetteInstructionsWallPanel;
-    public GameObject dispensePlasmaWallPanel;
+    public GameObject currentPanel;
+    private GameObject confirmationBorder;
+    public GameObject nextPanel;
+    private AudioSource bleep;
+    private AudioSource stageCompleteBleep;
     private GameObject[] FacePanels;
+ 
+    private bool stepComplete = false;
 
-
-    //Borders;
-    public GameObject putOnGlovesBorder;
-    public GameObject openCentrifugeBorder;
-    public GameObject placeTubesInCentrifugeBorder;
-    public GameObject closeCentrifugeInstructionBorder;
-    public GameObject centrifugeButtonPressedBorder;
-    public GameObject pipettePickedUpBorder;
-    public GameObject splitBloodPickedUpBorder;
-    public GameObject plasmaDrawnBorder;
-
-    //Audio
-    public AudioSource UIAudio;
-    public AudioSource stageCompleteAudio;
-    private bool pipetteAudioHasPlayed = false;
-    private bool bloodTubeAudioHasPlayed = false;
-
+    public bool GetStepComplete()
+    {
+        return stepComplete;
+    }
     public void Start()
     {
+        confirmationBorder = GameObject.Find("BS_InstructionsBorder");
+        bleep = GameObject.Find("UIHappyBleep").GetComponent<AudioSource>();
+        stageCompleteBleep = GameObject.Find("StageCompleteAudio").GetComponent<AudioSource>();
         FacePanels = GameObject.FindGameObjectsWithTag("MainUIPanel");
-
     }
-
-    // Update is called once per frame. This is required for things such as the centrifuge hinge angle which is frequently updated
-    void Update()
+    public void NextPanel(float seconds)
     {
-/*        centrifugeIsOpen = centrifugeController.centrifugeIsOpen;
-        if (centrifugeIsOpen)
+        if (!stepComplete)
         {
-            openCentrifugeBorder.SetActive(true);
-            closeCentrifugeInstructionBorder.SetActive(false);
-        }
-        else
-        {
-            openCentrifugeBorder.SetActive(false);
-            closeCentrifugeInstructionBorder.SetActive(true);
-        }*/
-    }
-    //Checking if there are 2 tubes in the centrifuge slot. This variable is modified by the "centrifuge socket controller" class
-    public void UpdateTubesInSockets(int numTubes)
-    {
-        //Opening the second set of 3 instructions panels after a short delay
-        if (numTubes == 2 && isWearingGloves &&!stageOneComplete)
-        {
-            placeTubesInCentrifugeBorder.SetActive(true);
-            UIAudio.Play();
-            StartCoroutine(ShowSecondInstructionsWallPanel());
-        }
-
-        else if (numTubes == 2 && !isWearingGloves)
-        {
-            UIAudio.Play();
-            placeTubesInCentrifugeBorder.SetActive(true);
-        }
-
-    }
-
-    public void PickUpPipette(bool isHeld)
-    {
-        if (isHeld && stageOneComplete)
-        {
-            pipettePickedUpBorder.SetActive(true);
-            if (!pipetteAudioHasPlayed)
-            {
-                UIAudio.Play();
-                pipetteAudioHasPlayed = true;
-            }
-        } else
-        {
-            pipettePickedUpBorder.SetActive(false);
+            bleep.Play();
+            confirmationBorder.GetComponent<Canvas>().enabled = true;
+            StartCoroutine(ShowNextPanelCoroutine(seconds));
+            stepComplete = true;
         }
     }
 
-    public void PickUpSplitBlood(bool isHeld)
+    public void ShowFacePanels(float waitForSeconds)
     {
-        if (isHeld && stageOneComplete)
-        {
-            splitBloodPickedUpBorder.SetActive(true);
-            if (!bloodTubeAudioHasPlayed)
-            {
-                UIAudio.Play();
-                bloodTubeAudioHasPlayed = true;
-            }
-        }
-        else
-        {
-            splitBloodPickedUpBorder.SetActive(false);
-        }
+        StartCoroutine(ShowFacePanelsCoroutine(waitForSeconds));
     }
 
-    public void DrawPlasma()
+    public void CompleteStage(float seconds)
     {
-        plasmaDrawnBorder.SetActive(true);
-        StartCoroutine(ShowDispensePlasmaInstructions());
+        StartCoroutine(CompleteStageCoroutine(seconds));
     }
 
-
-
-    public void PutOnGloves()
+    IEnumerator ShowNextPanelCoroutine(float seconds) 
     {
-
-            isWearingGloves = true;
-            putOnGlovesBorder.SetActive(true);
-            UIAudio.Play();
-
+        yield return new WaitForSeconds(seconds);
+        confirmationBorder.GetComponent<Canvas>().enabled = false;
+        currentPanel.SetActive(false);
+        nextPanel.SetActive(true);
     }
 
-/*    public void PressCentrifugeButton()
+    IEnumerator ShowFacePanelsCoroutine(float seconds)
     {
-        //Activating the 5th final if conditions are met
-        if (centrifugeController.numberOfTubesInSockets >= 2 && !stageOneComplete)
-        {
-            centrifugeButtonPressedBorder.SetActive(true);
-            UIAudio.Play();
-            StartCoroutine(ShowPipetteInstructionsFacePanel());
-            stageOneComplete = true;
-        }
-    }*/
-
-    IEnumerator ShowSecondInstructionsWallPanel()
-    {
-        // Wait for 1 second
-        yield return new WaitForSeconds(1);
-
-        // Deactivate firstInstructionsPanel and activate secondInstructionsPanel
-        firstThreeWallPanels.SetActive(false);
-        secondThreeWallPanels.SetActive(true);
-    }
-
-
-    IEnumerator ShowPipetteInstructionsFacePanel()
-    {
-        // Wait for 1 second
-        yield return new WaitForSeconds(10);
-
-        // Deactivate wall panel and activate face panels
-        secondThreeWallPanels.SetActive(false);
-
+        yield return new WaitForSeconds(seconds);
+        currentPanel.SetActive(false);
         if (FacePanels != null)
         {
             foreach (var gameobj in FacePanels)
             {
                 gameobj.SetActive(true);
-                
+
             }
         }
-
-        else
-        {
-            Debug.LogWarning("Can't find panel");
-        }
-
-
-        stageCompleteAudio.Play();
     }
 
-    IEnumerator ShowDispensePlasmaInstructions()
+    IEnumerator CompleteStageCoroutine(float seconds)
     {
-        // Wait for 1 second
-        yield return new WaitForSeconds(1);
-
-        // Deactivate wall panel and activate face panels
-        pipetteInstructionsWallPanel.SetActive(false);
-        dispensePlasmaWallPanel.SetActive(true);
+        yield return new WaitForSeconds(seconds);
+        stageCompleteBleep.Play();
     }
 }
