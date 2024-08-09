@@ -10,6 +10,7 @@ public class SliceBlock : MonoBehaviour
     private Vector3 spawnPosition;
     private Quaternion spawnRotation;
     public GameObject slice;
+    public InstructionsPanelManager2 instructionsPanel;
     private void Start()
     {
         spawnPosition = spawnLocation.transform.position;
@@ -23,6 +24,7 @@ public class SliceBlock : MonoBehaviour
         {
             Debug.Log("Instantiating associated slice.");
             Instantiate(slice, spawnPosition, spawnRotation);
+            instructionsPanel.NextPanel(1f);
         }
     }
 }

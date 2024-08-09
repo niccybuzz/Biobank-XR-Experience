@@ -24,7 +24,6 @@ public class Slide : MonoBehaviour
         Sprite blockImage = sampleBlock.GetComponentInChildren<Image>().sprite;
         if (blockImage != null)
         {
-            Debug.LogWarning("Image attached to block found: "+blockImage.name);
         }
         
         slideImage.sprite = blockImage;
