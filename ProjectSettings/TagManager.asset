@@ -26,6 +26,8 @@ TagManager:
   - LeftControllerVisuals
   - SampleBlock
   - FridgeDoor
+  - FinalScore
+  - Slice
   layers:
   - Default
   - TransparentFX

@@ -29,30 +29,6 @@ public class PipetteManager : MonoBehaviour
     private void Start()
     {
         plunger_InitialPosition = plunger.transform.localPosition;
-        leftControllerHelper = GameObject.FindGameObjectWithTag("LeftControllerVisuals").GetComponent<OVRControllerHelper>();
-        rightControllerHelper = GameObject.FindGameObjectWithTag("RightControllerVisual").GetComponent<OVRControllerHelper>();
-
-    }
-    public void OnGrab()
-    {
-        
-        IsHeld = true;
-
-
-        if (previousStep.GetStepComplete())
-        {
-            instructionManager.NextPanel(1f);
-        }
-
-    }
-    public void OnDrop()
-    {
-
-        IsHeld = false;
-
-        //turning controller visuals back on when pipette dropped
-        leftControllerHelper.m_showState = OVRInput.InputDeviceShowState.Always;
-        rightControllerHelper.m_showState = OVRInput.InputDeviceShowState.Always;
 
     }
 
