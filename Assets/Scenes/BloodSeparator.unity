@@ -13245,7 +13245,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3079314865690865216, guid: f54012181eacade4ea242c65f804720f, type: 3}
       propertyPath: m_showState
-      value: 0
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3079314865690865216, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_controller
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3079314865690865216, guid: f54012181eacade4ea242c65f804720f, type: 3}
       propertyPath: m_modelMetaTouchProRightController
@@ -14673,7 +14677,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7239993999913118407, guid: f54012181eacade4ea242c65f804720f, type: 3}
       propertyPath: m_showState
-      value: 0
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239993999913118407, guid: f54012181eacade4ea242c65f804720f, type: 3}
+      propertyPath: m_controller
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7261741813082570524, guid: f54012181eacade4ea242c65f804720f, type: 3}
       propertyPath: m_Layer

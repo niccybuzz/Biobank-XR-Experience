@@ -19,9 +19,6 @@ public class PipetteManager : MonoBehaviour
     public InstructionsPanelManager2 previousStep;
     public InstructionsPanelManager2 instructionManager;
 
-    private OVRControllerHelper leftControllerHelper;
-    private OVRControllerHelper rightControllerHelper;
-
     public bool IsPressed { get => isPressed; set => isPressed = value; }
     public bool IsHeld { get => isHeld; set => isHeld = value; }
     public bool IsFull { get => isFull; set => isFull = value; }

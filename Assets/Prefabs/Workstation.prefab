@@ -22645,6 +22645,10 @@ PrefabInstance:
       propertyPath: _grabSource
       value: 
       objectReference: {fileID: 7845567520789724340}
+    - target: {fileID: 2912601059019680376, guid: 5d5a3c48faafadf4dac9c97a90756536, type: 3}
+      propertyPath: _physicsGrabbable
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3228254272954432349, guid: 5d5a3c48faafadf4dac9c97a90756536, type: 3}
       propertyPath: _rigidbody
       value: 
@@ -22737,7 +22741,9 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4582005916682069629, guid: 5d5a3c48faafadf4dac9c97a90756536, type: 3}
+    - {fileID: 499856962979345119, guid: 5d5a3c48faafadf4dac9c97a90756536, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5940794798177300051, guid: 5d5a3c48faafadf4dac9c97a90756536, type: 3}

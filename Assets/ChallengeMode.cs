@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
-using Meta.XR.Locomotion.Teleporter;
 
 public class ChallengeMode : MonoBehaviour
 {
