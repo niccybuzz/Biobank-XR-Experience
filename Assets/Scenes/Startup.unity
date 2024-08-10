@@ -4048,7 +4048,7 @@ MonoBehaviour:
   BorderSize: 0
   Colliders: 1
   CutHoles: 0
-  castShadows: 1
+  castShadows: 0
   hideMesh: 1
   textureCoordinateModes:
   - WallU: 5
@@ -20529,11 +20529,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4043975414750902699, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.117
+      value: -0.13628876
       objectReference: {fileID: 0}
     - target: {fileID: 4043975414750902699, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.024
+      value: 0.12309745
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043975414750902699, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98803335
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043975414750902699, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.15424043
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043975414750902699, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -17.745
       objectReference: {fileID: 0}
     - target: {fileID: 5633989972953970837, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
       propertyPath: m_Name
@@ -20541,7 +20553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5633989972953970837, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8614254637907620062, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
       propertyPath: hand
