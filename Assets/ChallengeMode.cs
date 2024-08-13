@@ -46,7 +46,6 @@ public class ChallengeMode : MonoBehaviour
             if (timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
-                Debug.LogWarning($"{timeRemaining}");
                 DisplayTime(timeRemaining);
             }
             else
