@@ -65,7 +65,7 @@ public class LaptopController : MonoBehaviour
         return result;
     }
 
-    public void SelectButton()
+    public virtual void SelectButton()
     {
         string message;
         bool matches;

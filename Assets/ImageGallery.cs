@@ -14,7 +14,7 @@ public class ImageGallery : MonoBehaviour
         LoadImages();
     }
 
-    protected void LoadImages()
+    public void LoadImages()
     {
         // Load all sprites from the specified folder in Resources
         Sprite[] loadedImages = Resources.LoadAll<Sprite>(imageFolder);
@@ -37,7 +37,7 @@ public class ImageGallery : MonoBehaviour
             return null;
         }
 
-        int randomImageNo = Random.Range(0, Images.Count);
+        int randomImageNo = Random.Range(0, Images.Count-1);
         Sprite randomImage = Images[randomImageNo];
         return randomImage;
     }

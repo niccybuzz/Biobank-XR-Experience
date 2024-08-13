@@ -24,9 +24,9 @@ public class Slide : MonoBehaviour
         Sprite blockImage = sampleBlock.GetComponentInChildren<Image>().sprite;
         if (blockImage != null)
         {
+            slideImage.sprite = blockImage;
         }
         
-        slideImage.sprite = blockImage;
     }
 
 }

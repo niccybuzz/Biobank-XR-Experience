@@ -22,9 +22,12 @@ public class SliceBlock : MonoBehaviour
 
         if (other.CompareTag("SampleBlock"))
         {
-            Debug.Log("Instantiating associated slice.");
             Instantiate(slice, spawnPosition, spawnRotation);
-            instructionsPanel.NextPanel(1f);
+            if (instructionsPanel != null)
+            {
+                instructionsPanel.NextPanel(1f);
+
+            }
         }
     }
 }
