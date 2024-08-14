@@ -11,6 +11,7 @@ public class ChallengeMode : MonoBehaviour
     private float lastTickTime = 0f;
     private int score = 0;
     public AudioSource tick;
+    private BeginCountdown countdown;
 
     public float timeRemaining = 60f;
     private bool timerIsRunning = false;
@@ -25,6 +26,7 @@ public class ChallengeMode : MonoBehaviour
         {
             Debug.LogWarning("Face panels found");
         }
+        countdown = GameObject.Find("321Go").GetComponent<BeginCountdown>();
     }
 
     public void AddPoint()
@@ -35,8 +37,14 @@ public class ChallengeMode : MonoBehaviour
     
     public void StartCountdown()
     {
+        StartCoroutine("PreCountdown");
+    }
+    
+    private IEnumerator PreCountdown()
+    {
+        countdown.ThreeTwoOneGo();
+        yield return new WaitForSeconds(3);
         timerIsRunning = true;
-        Debug.LogWarning("Timer should be starting now");
     }
 
     void Update()
@@ -54,15 +62,15 @@ public class ChallengeMode : MonoBehaviour
                 timerIsRunning = false;
                 DisplayScore();
             }
-//            if (timeRemaining <= 5)
- //           {
-   //             // Check if 1 second has passed since the last tick
-     //           if (Time.time >= lastTickTime + 1f)
-       //         {
-         //           tick.Play();
-           //         lastTickTime = Time.time;  // Update the last tick time
-             //   }
-            //}
+            if (timeRemaining <= 5)
+            {
+                // Check if 1 second has passed since the last tick
+                if (Time.time >= lastTickTime + 1f)
+                {
+                    tick.Play();
+                    lastTickTime = Time.time;  // Update the last tick time
+                }
+            }
 
         }
     }
