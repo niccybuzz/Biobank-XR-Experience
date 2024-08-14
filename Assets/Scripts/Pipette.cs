@@ -29,6 +29,15 @@ public class PipetteManager : MonoBehaviour
 
     }
 
+    public void OnGrab()
+    {
+        isHeld = true;
+        if (previousStep.StepComplete)
+        {
+            instructionManager.NextPanel(1f);
+        }
+    }
+
     void Update()
     {
         // Check for VR controller trigger press

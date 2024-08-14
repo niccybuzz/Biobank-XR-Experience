@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 6112213364388878703}
   - component: {fileID: 3776140651788003086}
   m_Layer: 0
-  m_Name: Slice
+  m_Name: Microscope Slide
   m_TagString: Slice
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

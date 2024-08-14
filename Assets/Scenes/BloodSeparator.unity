@@ -8267,6 +8267,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.000092506
       objectReference: {fileID: 0}
+    - target: {fileID: 808815139117510903, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
+      propertyPath: _dragThresholds.Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 863657305440891474, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: BloodSeparator
@@ -15475,7 +15479,7 @@ MonoBehaviour:
     Enabled: 0
     MinNormal: 0.01
   _dragThresholds:
-    Enabled: 1
+    Enabled: 0
     DragNormal: 0.01
     DragTangent: 0.01
     DragEaseCurve:
