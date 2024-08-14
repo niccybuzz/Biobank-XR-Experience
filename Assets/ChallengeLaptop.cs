@@ -49,8 +49,8 @@ public class ChallengeLaptop : LaptopController
         {
             slide.SetActive(false);
         }
-        GameObject blockOnSlide = microtome.MostRecentBlockAttached;
-        blockOnSlide.SetActive(false);
+        microtome.ClearBlocksOnPlatform();
+        microtome.DetachBlock();
         smoke1.Play();
         smoke2.Play();
     }

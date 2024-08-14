@@ -10,7 +10,7 @@ public class SliceBlock : MonoBehaviour
     private Vector3 spawnPosition;
     private Quaternion spawnRotation;
     public GameObject slice;
-    public InstructionsPanelManager2 instructionsPanel;
+    //public InstructionsPanelManager2 instructionsPanel;
     private void Start()
     {
         spawnPosition = spawnLocation.transform.position;
@@ -23,11 +23,6 @@ public class SliceBlock : MonoBehaviour
         if (other.CompareTag("SampleBlock"))
         {
             Instantiate(slice, spawnPosition, spawnRotation);
-            if (instructionsPanel != null)
-            {
-                instructionsPanel.NextPanel(1f);
-
-            }
         }
     }
 }

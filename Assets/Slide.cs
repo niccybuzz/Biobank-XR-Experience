@@ -1,32 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Slide : MonoBehaviour
 {
 
-    public Image slideImage;
+    private Sprite slideImage;
     private Microtome _microtome;
-    void Start()
+    public TextMeshProUGUI debugText;
+
+    public Sprite SlideImage { get => slideImage; set => slideImage = value; }
+
+    void OnEnable()
     {
         _microtome = GameObject.Find("Microtome").GetComponent<Microtome>();
-        if (_microtome == null )
+        if (_microtome == null)
         {
-            Debug.LogWarning("Microtome Not Found");
-            return;
+            debugText.text = "Can't find microtome";
         }
+        else
+        {
+            SlideImage = GetImageFromBlock();
+            debugText.text = SlideImage.name;
+        }
+    }
+
+    public Sprite GetImageFromBlock()
+    {
         GameObject sampleBlock = _microtome.MostRecentBlockAttached;
-        if ( sampleBlock == null )
+        Sprite blockImage;
+        if (sampleBlock == null)
         {
-            Debug.LogWarning("Can't get most recent block attached");
+            debugText.text = ("Can't get most recent block attached");
         }
-        Sprite blockImage = sampleBlock.GetComponentInChildren<Image>().sprite;
-        if (blockImage != null)
+
+        blockImage = sampleBlock.GetComponent<FFPEBlock>().GetBlockImage();
+        if (blockImage == null)
         {
-            slideImage.sprite = blockImage;
+            debugText.text = "Can't get the block image";
         }
-        
+        else
+        {
+            debugText.text = blockImage.name + ", success";
+        }
+
+        return blockImage;
     }
 
 }
