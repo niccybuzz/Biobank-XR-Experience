@@ -1,6 +1,3 @@
-using Meta.WitAi;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -15,8 +12,6 @@ public class ChallengeLaptop : LaptopController
     public MicroscopeManager microscopeManager;
     public ParticleSystem smoke1;
     public ParticleSystem smoke2;
-
-    public TextMeshProUGUI scoreText;
 
     // Called whenever the "Select" button is pressed on the laptop
     public override void SelectButton()
@@ -65,16 +60,11 @@ public class ChallengeLaptop : LaptopController
         {
             slice.SetActive(false);
         }
-        scoreText.text = "microscope";
         microscopeManager.RemoveBlockFromPlatform();
-        scoreText.text = "microtome";
         microtome.ClearBlocksOnPlatform();
         
-        scoreText.text = "smoke";
-
         //Playing the smoke particle systems whenever they are deleted for a little visual effect
         smoke1.Play();
         smoke2.Play();
-        scoreText.text = "Done";
     }
 }

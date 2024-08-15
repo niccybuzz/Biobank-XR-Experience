@@ -17,7 +17,7 @@ public class MicroscopeManager : MonoBehaviour
         GameObject slideOnPlatform = GetSlideOnPlatform();
         if (slideOnPlatform != null)
         {
-            Sprite image = slideOnPlatform.GetComponent<Slide>().SlideImage;
+            Sprite image = slideOnPlatform.GetComponent<Slice>().SliceImage;
             tabletImageLocation.sprite = image;
         }
 

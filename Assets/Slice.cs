@@ -1,17 +1,19 @@
+using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Slide : MonoBehaviour
+public class Slice : MonoBehaviour
 {
 
-    private Sprite slideImage;
+    private Sprite sliceImage;
     private Microtome _microtome;
     public TextMeshProUGUI debugText;
+    private bool hasBeenSoaked = false;
 
-    public Sprite SlideImage { get => slideImage; set => slideImage = value; }
+    public Sprite SliceImage { get => sliceImage; set => sliceImage = value; }
 
     void OnEnable()
     {
@@ -22,9 +24,15 @@ public class Slide : MonoBehaviour
         }
         else
         {
-            SlideImage = GetImageFromBlock();
-            debugText.text = SlideImage.name;
+            SliceImage = GetImageFromBlock();
+            debugText.text = SliceImage.name;
         }
+    }
+
+    public void SoakSlice()
+    {
+        hasBeenSoaked = true;
+        GetComponentInChildren<SnapInteractor>().enabled = true;
     }
 
     public Sprite GetImageFromBlock()

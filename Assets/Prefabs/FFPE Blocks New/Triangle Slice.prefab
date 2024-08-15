@@ -162,6 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1096707694675629080}
   - component: {fileID: 6374875848623776244}
+  - component: {fileID: 1573996764600149327}
   m_Layer: 0
   m_Name: Snap Interactor
   m_TagString: Untagged
@@ -192,7 +193,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3004005281720144406}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2756c251a8363df4f9d4b30ee6414bd9, type: 3}
   m_Name: 
@@ -209,6 +210,20 @@ MonoBehaviour:
   _defaultInteractable: {fileID: 0}
   _timeOutInteractable: {fileID: 0}
   _timeOut: 0
+--- !u!114 &1573996764600149327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3004005281720144406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeaf26e845dc5841bcd31de97d26003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tags:
+  - Slice
 --- !u!1 &3389103159491784867
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,7 +707,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8299670546152387037}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 51291a2454cd28f4abea66fd6ca73779, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
