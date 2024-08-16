@@ -9,6 +9,7 @@ public class PipetteManager : MonoBehaviour
     private bool isHeld = false;
     private bool isFull = false;
 
+    public bool challengeModeEnabled;
     //variables for speed and distance of plunger moving speed
     public GameObject plunger;
     public float moveDistance = 0.1f; // Distance the plunger moves down
@@ -16,8 +17,8 @@ public class PipetteManager : MonoBehaviour
     
     private Vector3 plunger_InitialPosition;
 
-    public InstructionsPanelManager2 previousStep;
-    public InstructionsPanelManager2 instructionManager;
+    public InstructionsPanelManager previousStep;
+    public InstructionsPanelManager instructionManager;
 
     public bool IsPressed { get => isPressed; set => isPressed = value; }
     public bool IsHeld { get => isHeld; set => isHeld = value; }
@@ -29,14 +30,26 @@ public class PipetteManager : MonoBehaviour
 
     }
 
+    public void OnGrab()
+    {
+        isHeld = true;
+        if (!challengeModeEnabled)
+        {
+            if (previousStep.StepComplete)
+            {
+                instructionManager.NextPanel(1f);
+            }
+        }
+    }
+
     void Update()
     {
         // Check for VR controller trigger press
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && IsHeld)
+        if ((OVRInput.GetDown(OVRInput.Button.One) || OVRInput.GetDown(OVRInput.Button.Three)) && IsHeld)
         {
             IsPressed = true;
         }
-        else if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger) && IsHeld)
+        else if (OVRInput.GetUp(OVRInput.Button.One) || OVRInput.GetUp(OVRInput.Button.Three))
         {
             IsPressed = false;
         }

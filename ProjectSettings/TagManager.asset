@@ -28,6 +28,10 @@ TagManager:
   - FridgeDoor
   - FinalScore
   - Slice
+  - SquareSample
+  - SpottySample
+  - TriangleSample
+  - MicroscopeSlide
   layers:
   - Default
   - TransparentFX

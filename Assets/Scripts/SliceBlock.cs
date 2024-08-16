@@ -9,8 +9,8 @@ public class SliceBlock : MonoBehaviour
     public Transform spawnLocation;
     private Vector3 spawnPosition;
     private Quaternion spawnRotation;
-    public GameObject slice;
-    //public InstructionsPanelManager2 instructionsPanel;
+    public List<GameObject> slices;
+    public InstructionsPanelManager instructionsManager;
     private void Start()
     {
         spawnPosition = spawnLocation.transform.position;
@@ -19,10 +19,27 @@ public class SliceBlock : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        bool validSample = false;
 
-        if (other.CompareTag("SampleBlock"))
+        if (other.CompareTag("SpottySample"))
         {
-            Instantiate(slice, spawnPosition, spawnRotation);
+            Instantiate(slices[0], spawnPosition, spawnRotation);
+            validSample = true;
+        }
+        if (other.CompareTag("SquareSample"))
+        {
+            Instantiate(slices[1], spawnPosition, spawnRotation);
+            validSample = true;
+        }
+        if (other.CompareTag("TriangleSample"))
+        {
+            Instantiate(slices[2], spawnPosition, spawnRotation);
+            validSample = true;
+        }
+        
+        if (validSample && instructionsManager != null)
+        {
+            instructionsManager.NextPanel(1f);
         }
     }
 }

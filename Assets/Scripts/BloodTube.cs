@@ -8,8 +8,10 @@ public class TestTubeManager : TestTube
     private bool bloodSplit = false;
     public GameObject wholeBlood;
     public GameObject splitBlood;
-    public InstructionsPanelManager2 removeLidInstructions;
-    public InstructionsPanelManager2 drawPlasmaInstructions;
+    public InstructionsPanelManager removeLidInstructions;
+    public InstructionsPanelManager drawPlasmaInstructions;
+
+    public bool challengeModeEnabled = false;
 
     public bool BloodSplit { get => bloodSplit; set => bloodSplit = value; }
     public bool LidOn { get => lidOn; set => lidOn = value; }
@@ -31,7 +33,10 @@ public class TestTubeManager : TestTube
         isAnimating = true;
         animationTimer = animationDuration;
         pipette.IsFull = true;
-        drawPlasmaInstructions.NextPanel(1f);
+        if (!challengeModeEnabled)
+        {
+            drawPlasmaInstructions.NextPanel(1f);
+        }
 
     }
 
@@ -46,7 +51,7 @@ public class TestTubeManager : TestTube
     {
 
         lidOn = false;
-        if (bloodSplit)
+        if (bloodSplit && !challengeModeEnabled)
         {
             removeLidInstructions.NextPanel(1f);
         }

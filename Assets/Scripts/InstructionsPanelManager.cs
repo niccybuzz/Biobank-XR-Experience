@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class InstructionsPanelManager2 : MonoBehaviour
+public class InstructionsPanelManager : MonoBehaviour
 {
     public GameObject currentPanel;
     private GameObject confirmationBorder;
@@ -12,10 +12,8 @@ public class InstructionsPanelManager2 : MonoBehaviour
  
     private bool stepComplete = false;
 
-    public bool GetStepComplete()
-    {
-        return stepComplete;
-    }
+    public bool StepComplete { get => stepComplete; set => stepComplete = value; }
+
     public void Start()
     {
         confirmationBorder = GameObject.Find("BS_InstructionsBorder");
@@ -25,12 +23,12 @@ public class InstructionsPanelManager2 : MonoBehaviour
     }
     public void NextPanel(float seconds)
     {
-        if (!stepComplete)
+        if (!StepComplete)
         {
             bleep.Play();
             confirmationBorder.GetComponent<Canvas>().enabled = true;
             StartCoroutine(ShowNextPanelCoroutine(seconds));
-            stepComplete = true;
+            StepComplete = true;
         }
     }
 

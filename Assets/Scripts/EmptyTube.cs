@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EmptyTubeManager : TestTube
 {
-    public InstructionsPanelManager2 dispensePlasmaInstructions;
+    public InstructionsPanelManager dispensePlasmaInstructions;
+    public bool challengeModeEnabled;
+    public ChallengeMode challengeMode;
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Tip"))
@@ -17,16 +19,23 @@ public class EmptyTubeManager : TestTube
         }
 
     }
-    private void StartDispensePlasma()
+    protected virtual void StartDispensePlasma()
     {
         animationCompleted = false;
         isAnimating = true;
         animationTimer = animationDuration;
         pipette.IsFull = false;
         skinnedMeshRenderer.enabled = true;
-        dispensePlasmaInstructions.NextPanel(1f);
-        dispensePlasmaInstructions.ShowFacePanels(1f);
-        dispensePlasmaInstructions.CompleteStage(1f);
+        if (!challengeModeEnabled)
+        {
+            dispensePlasmaInstructions.NextPanel(1f);
+            dispensePlasmaInstructions.ShowFacePanels(1f);
+            dispensePlasmaInstructions.CompleteStage(1f);
+        }
+        else if (challengeMode != null)
+        {
+            challengeMode.AddPoint();
+        }
     }
 
     public void RemoveLid()
