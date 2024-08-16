@@ -24,15 +24,17 @@ public class CentrifugeController : MonoBehaviour
     private int numberOfTubesInSockets = 0;
 
     //Instructions panel interactors
-    public InstructionsPanelManager2 openCentrifugePanel;
-    public InstructionsPanelManager2 tubesInCentrifugePanel;
-    public InstructionsPanelManager2 closeCentrifugePanel;
-    public InstructionsPanelManager2 pressCentrifugeButtonPanel;
+    public InstructionsPanelManager openCentrifugePanel;
+    public InstructionsPanelManager tubesInCentrifugePanel;
+    public InstructionsPanelManager closeCentrifugePanel;
+    public InstructionsPanelManager pressCentrifugeButtonPanel;
 
     public AudioSource centrifugeAudio;
 
     private bool centrifugeIsOpen = false;
     private bool isSpinning = false;
+
+    public bool challengeModeEnabled = false;
 
     public void Start()
     {
@@ -74,9 +76,8 @@ public class CentrifugeController : MonoBehaviour
             StartCoroutine(SpinForDuration());
             SplitBlood(bloodTubeSockets);
             centrifugeAudio.Play();
-            if (numberOfTubesInSockets >= 2)
+            if (numberOfTubesInSockets >= 2 && !challengeModeEnabled)
             {
-                pressCentrifugeButtonPanel.ShowFacePanels(spinDuration);
                 pressCentrifugeButtonPanel.NextPanel(spinDuration);
                 pressCentrifugeButtonPanel.CompleteStage(spinDuration);
             }
@@ -86,14 +87,17 @@ public class CentrifugeController : MonoBehaviour
 
     public void OpenCentrifuge() {
         centrifugeIsOpen = true;
-        openCentrifugePanel.NextPanel(1);
+        if (!challengeModeEnabled)
+        {
+            openCentrifugePanel.NextPanel(1);
+        }
     }
 
 
     public void CloseCentrifuge()
     {
         centrifugeIsOpen = false;
-        if (numberOfTubesInSockets >= 2)
+        if (numberOfTubesInSockets >= 2 && !challengeModeEnabled)
         {
             closeCentrifugePanel.NextPanel(1);
         }
@@ -134,7 +138,7 @@ public class CentrifugeController : MonoBehaviour
     public void IncrementTubesInSockets()
     {
         numberOfTubesInSockets++;
-        if (numberOfTubesInSockets >= 2)
+        if (numberOfTubesInSockets >= 2 && !challengeModeEnabled)
         {
             tubesInCentrifugePanel.NextPanel(1);
         }

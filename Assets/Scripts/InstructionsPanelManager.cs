@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class InstructionsPanelManager2 : MonoBehaviour
+public class InstructionsPanelManager : MonoBehaviour
 {
     public GameObject currentPanel;
     private GameObject confirmationBorder;
