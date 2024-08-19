@@ -32,6 +32,7 @@ TagManager:
   - SpottySample
   - TriangleSample
   - MicroscopeSlide
+  - Drawer
   layers:
   - Default
   - TransparentFX

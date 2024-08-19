@@ -127,6 +127,8 @@ MonoBehaviour:
   plasma: {fileID: 7278570850885712375}
   pipette: {fileID: 2919314487869930613}
   dispensePlasmaInstructions: {fileID: 2141362068105324788}
+  challengeModeEnabled: 0
+  challengeMode: {fileID: 0}
 --- !u!1 &54723689670114580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,6 +1795,8 @@ MonoBehaviour:
   plasma: {fileID: 4035748781650740222}
   pipette: {fileID: 2919314487869930613}
   dispensePlasmaInstructions: {fileID: 2141362068105324788}
+  challengeModeEnabled: 0
+  challengeMode: {fileID: 0}
 --- !u!1 &820117659744479016
 GameObject:
   m_ObjectHideFlags: 0
@@ -3259,8 +3263,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30.6, y: -6.58}
-  m_SizeDelta: {x: 53.54, y: 24.21}
+  m_AnchoredPosition: {x: -29.1, y: -6.58}
+  m_SizeDelta: {x: 46.2, y: 24.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9155803630488947921
 CanvasRenderer:
@@ -3432,7 +3436,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 37.5, y: -9.79}
+  m_AnchoredPosition: {x: 37.5, y: -7.9}
   m_SizeDelta: {x: 112.59, y: 54.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8806102573929861558
@@ -3463,7 +3467,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pick up the pipette using with the GRAB button
+  m_text: 'With one of the controllers, pick up the pipette by pressing the GRAB
+    button '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -3490,8 +3495,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10.42
-  m_fontSizeBase: 10.42
+  m_fontSize: 7.53
+  m_fontSizeBase: 7.53
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7527,6 +7532,8 @@ MonoBehaviour:
   plasma: {fileID: 8343922354496803832}
   pipette: {fileID: 2919314487869930613}
   dispensePlasmaInstructions: {fileID: 2141362068105324788}
+  challengeModeEnabled: 0
+  challengeMode: {fileID: 0}
 --- !u!1 &2688532105312555664
 GameObject:
   m_ObjectHideFlags: 0
@@ -9060,6 +9067,8 @@ MonoBehaviour:
   plasma: {fileID: 4746259143980332093}
   pipette: {fileID: 2919314487869930613}
   dispensePlasmaInstructions: {fileID: 2141362068105324788}
+  challengeModeEnabled: 0
+  challengeMode: {fileID: 0}
 --- !u!1 &3340512989072459096
 GameObject:
   m_ObjectHideFlags: 0
@@ -9187,6 +9196,8 @@ MonoBehaviour:
   plasma: {fileID: 3196339404328932700}
   pipette: {fileID: 2919314487869930613}
   dispensePlasmaInstructions: {fileID: 2141362068105324788}
+  challengeModeEnabled: 0
+  challengeMode: {fileID: 0}
 --- !u!1 &3341464711324467996
 GameObject:
   m_ObjectHideFlags: 0
@@ -11643,7 +11654,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3983959129571704463}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
@@ -13692,7 +13703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30.6, y: -7.76}
+  m_AnchoredPosition: {x: -30.6, y: -4.8}
   m_SizeDelta: {x: 49.71, y: 15.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7461518101293813294
@@ -23739,6 +23750,8 @@ MonoBehaviour:
   plasma: {fileID: 5121341640199028812}
   pipette: {fileID: 2919314487869930613}
   dispensePlasmaInstructions: {fileID: 2141362068105324788}
+  challengeModeEnabled: 0
+  challengeMode: {fileID: 0}
 --- !u!1 &7538247824213368696
 GameObject:
   m_ObjectHideFlags: 0
@@ -28659,6 +28672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8778ee48ae4873b44bd2239aa6bf260d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeModeEnabled: 0
   plunger: {fileID: 4322677694741395068}
   moveDistance: 0.06
   moveSpeed: 1.5
@@ -29167,27 +29181,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4798050069985251400, guid: 9b8316d935b4e9b45ba3456294fc06c6, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8925875
+      value: 1.0062139
       objectReference: {fileID: 0}
     - target: {fileID: 4798050069985251400, guid: 9b8316d935b4e9b45ba3456294fc06c6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8925875
+      value: 1.0062139
       objectReference: {fileID: 0}
     - target: {fileID: 4798050069985251400, guid: 9b8316d935b4e9b45ba3456294fc06c6, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.8925875
+      value: 1.0062139
       objectReference: {fileID: 0}
     - target: {fileID: 4798050069985251400, guid: 9b8316d935b4e9b45ba3456294fc06c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.435
+      value: -0.42578
       objectReference: {fileID: 0}
     - target: {fileID: 4798050069985251400, guid: 9b8316d935b4e9b45ba3456294fc06c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.04
+      value: 0.02384
       objectReference: {fileID: 0}
     - target: {fileID: 4798050069985251400, guid: 9b8316d935b4e9b45ba3456294fc06c6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.065
+      value: -0.059094
       objectReference: {fileID: 0}
     - target: {fileID: 4798050069985251400, guid: 9b8316d935b4e9b45ba3456294fc06c6, type: 3}
       propertyPath: m_LocalRotation.w

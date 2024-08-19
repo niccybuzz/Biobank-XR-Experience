@@ -17,14 +17,6 @@ public class FFPEBlock : MonoBehaviour
         _imageGallery.LoadImages();
 
         Image = _imageGallery.GetRandomImage();
-        if (Image != null)
-        {
-            debugText.text = Image.name;
-        }
-        else
-        {
-            debugText.text = "Can't find image";
-        }
     }
 
     private void AttachRandomImage()
