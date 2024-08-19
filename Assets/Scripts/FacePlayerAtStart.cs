@@ -10,6 +10,10 @@ public class FacePlayerOnStartVR : MonoBehaviour
     void Start()
     {
         centerEyeAnchor = GameObject.Find("CenterEyeAnchor").transform;
+    }
+
+    private void Update()
+    {
         if (centerEyeAnchor != null)
         {
             // Calculate the direction from this GameObject to the player's CenterEyeAnchor
