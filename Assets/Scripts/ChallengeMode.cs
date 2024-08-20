@@ -22,7 +22,7 @@ public class ChallengeMode : MonoBehaviour
     public AudioSource missionCompleteSound;
 
     //BeginCountdown is the text panel that counts 3 2 1 go before the actual timer begins
-    private BeginCountdown countdown;
+    private BeginCountdown preCountdown;
 
     public float timeRemaining = 60f;
     private bool timerIsRunning = false;
@@ -35,7 +35,7 @@ public class ChallengeMode : MonoBehaviour
 
         //Have to use GameObject.find here because face panels and BeginCountdown are not in the workstation prefab
         facePanels = GameObject.Find("FacePanels");
-        countdown = GameObject.Find("321Go").GetComponent<BeginCountdown>();
+        preCountdown = GameObject.Find("321Go").GetComponent<BeginCountdown>();
     }
 
     // Called whenever a successful point is score, updating the scoreboard text
@@ -56,7 +56,7 @@ public class ChallengeMode : MonoBehaviour
     // Displaying the 3, 2, 1 GO message before start of the timer, then starting time
     private IEnumerator PreCountdown()
     {
-        countdown.ThreeTwoOneGo();
+        preCountdown.ThreeTwoOneGo();
         yield return new WaitForSeconds(3);
         timerIsRunning = true;
     }
@@ -108,6 +108,7 @@ public class ChallengeMode : MonoBehaviour
     void DisplayScore()
     {
 
+        missionCompleteSound.Play();
         facePanels.SetActive(true);
 
         //Using GameObject.Find here again because the face panels are not inside this prefab

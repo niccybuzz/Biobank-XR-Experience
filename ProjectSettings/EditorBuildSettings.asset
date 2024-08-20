@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/BloodSeparator.unity
     guid: 1201a8027fbd71848bdecba6e47df147
   - enabled: 1
-    path: Assets/Scenes/SampleSlicer.unity
+    path: Assets/Scenes/TissueAnalysis.unity
     guid: a50308f950e6c3443a718cb7a8e4cf4f
   - enabled: 1
-    path: Assets/Scenes/SampleSlicerChallenge.unity
+    path: Assets/Scenes/TissueAnalysisChallenge.unity
     guid: 951d8d6761b680c418942a4282104f85
   - enabled: 1
     path: Assets/Scenes/BloodSeparatorChallenge.unity

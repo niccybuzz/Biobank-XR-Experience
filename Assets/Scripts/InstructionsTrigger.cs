@@ -9,7 +9,10 @@ public class InstructionsTrigger : MonoBehaviour
         GameObject fridgeRadar = GameObject.Find("FridgeRadar");
         if (fridgeRadar != null) {
             InstructionsPanelManager panelManager = fridgeRadar.GetComponent<InstructionsPanelManager>();
-            panelManager.NextPanel(1f);
+            if (panelManager != null)
+            {
+                panelManager.NextPanel(1f);
+            }
 
     }
         
