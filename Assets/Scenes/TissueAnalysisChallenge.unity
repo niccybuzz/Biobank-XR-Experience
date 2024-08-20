@@ -3200,6 +3200,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   continueButton: {fileID: 1643892895}
+  mainMenuButton: {fileID: 0}
+  roomSetupButton: {fileID: 0}
   minimumTableLength: 1
   minimumTableWidth: 0.3
   roomValidationText: {fileID: 2003373327}
@@ -4757,7 +4759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 863657305440891474, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: SampleSlicerChallenge
+      value: TissueAnalysisChallenge
       objectReference: {fileID: 0}
     - target: {fileID: 1539072287005097910, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5905,7 +5907,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SampleSlicerChallenge
+          m_StringArgument: TissueAnalysisChallenge
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1539722740
@@ -7172,7 +7174,7 @@ MonoBehaviour:
   PrefabsToSpawn:
   - Labels: 8192
     Prefabs:
-    - {fileID: 238723588396609021, guid: 2e0c1f51e08be54479dedddf94b5ab1f, type: 3}
+    - {fileID: 238723588396609021, guid: b272cbcb1dba1f84c80767c891893a54, type: 3}
     PrefabSelection: 0
     MatchAspectRatio: 0
     CalculateFacingDirection: 0
@@ -7531,7 +7533,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Close and continue
+  m_text: Try Again
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}

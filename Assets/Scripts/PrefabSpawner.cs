@@ -40,7 +40,7 @@ public class WorkstationSpawner : MonoBehaviour
     {
         room = MRUK.Instance.GetCurrentRoom();
         List<MRUKAnchor> tables = validator.GetAllTables(room);
-        MRUKAnchor largestTable = validator.GetLargestTable(tables);
+        MRUKAnchor largestTable = validator.GetLargestAnchorFromList(tables);
         SpawnObjectOnTable2(largestTable);
     }
 
