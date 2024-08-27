@@ -5,27 +5,26 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * Governs the behaviour of the slices produced from the sample blocks when operating the microtome
+ */
 public class Slice : MonoBehaviour
 {
 
+    // The png image associated with the slide, determined when the slice is produced from the sample block being cut
     private Sprite sliceImage;
+    // A reference to the microtome used to retrieve the current sample block attached
     private Microtome _microtome;
-    public TextMeshProUGUI debugText;
-    private bool hasBeenSoaked = false;
 
     public Sprite SliceImage { get => sliceImage; set => sliceImage = value; }
 
     void OnEnable()
     {
         _microtome = GameObject.Find("Microtome").GetComponent<Microtome>();
-        if (_microtome == null)
-        {
-            debugText.text = "Can't find microtome";
-        }
-        else
+
+        if (_microtome != null)
         {
             SliceImage = GetImageFromBlock();
-            debugText.text = SliceImage.name;
         }
     }
 
@@ -35,26 +34,22 @@ public class Slice : MonoBehaviour
         GetComponentInChildren<SnapInteractor>().enabled = true;
     }
 
+    // Retrieves the image from the block attached to the microtome. Ensures that the same image is produced for every slice cut from the same block
     public Sprite GetImageFromBlock()
     {
         GameObject sampleBlock = _microtome.MostRecentBlockAttached;
         Sprite blockImage;
-        if (sampleBlock == null)
+        if (sampleBlock != null)
         {
-            debugText.text = ("Can't get most recent block attached");
-        }
-
-        blockImage = sampleBlock.GetComponent<FFPEBlock>().Image;
-        if (blockImage == null)
-        {
-            debugText.text = "Can't get the block image";
+            blockImage = sampleBlock.GetComponent<FFPEBlock>().Image;
+            return blockImage;
         }
         else
         {
-            debugText.text = blockImage.name + ", success";
+            Debug.Log("Can't find most recent block attached");
+            return null;
         }
 
-        return blockImage;
     }
 
 }

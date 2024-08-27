@@ -19,6 +19,7 @@ public class ChallengeMode : MonoBehaviour
     private int score = 0;
 
     public AudioSource tick;
+    public AudioSource addPointSound;
     public AudioSource missionCompleteSound;
 
     //BeginCountdown is the text panel that counts 3 2 1 go before the actual timer begins
@@ -45,6 +46,7 @@ public class ChallengeMode : MonoBehaviour
         {
             score += 1;
             scoreText.text = score.ToString();
+            addPointSound.Play();
         }
     }
     

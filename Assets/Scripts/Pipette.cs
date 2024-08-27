@@ -9,16 +9,24 @@ public class PipetteManager : MonoBehaviour
     private bool isHeld = false;
     private bool isFull = false;
 
-    public bool challengeModeEnabled;
+
+    [SerializeField]
+    private bool challengeModeEnabled;
+
     //variables for speed and distance of plunger moving speed
-    public GameObject plunger;
-    public float moveDistance = 0.1f; // Distance the plunger moves down
-    public float moveSpeed = 1.0f; // Speed of the plunger movement
+    [SerializeField]
+    private GameObject plunger;
+    [SerializeField]
+    private float moveDistance = 0.1f; // Distance the plunger moves down
+    [SerializeField]
+    private float moveSpeed = 1.0f; // Speed of the plunger movement
     
     private Vector3 plunger_InitialPosition;
 
-    public InstructionsPanelManager previousStep;
-    public InstructionsPanelManager instructionManager;
+    [SerializeField]
+    private InstructionsPanelManager previousStep;
+    [SerializeField]
+    private InstructionsPanelManager instructionManager;
 
     public bool IsPressed { get => isPressed; set => isPressed = value; }
     public bool IsHeld { get => isHeld; set => isHeld = value; }

@@ -5,14 +5,12 @@ using UnityEngine;
 
 public class CentrifugeAudioTrigger : MonoBehaviour
 {
-    public AudioSource UIAudio;
     public CentrifugeController centrifuge;
 
 
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.CompareTag("LidTrigger"))
         {
             ToggleTubeGrabInteractions(true);
@@ -32,17 +30,25 @@ public class CentrifugeAudioTrigger : MonoBehaviour
     public void ToggleTubeGrabInteractions(bool enable) 
     {
         //Disabling any grab interactions with tubes inside the centrifuge to stop weird grabbing behaviours with tubbes
-        List<GameObject> bloodTubes = centrifuge.GetAllBloodTubesInCentrifuge(centrifuge.bloodTubeSockets);
+        List<GameObject> bloodTubes = centrifuge.GetAllBloodTubesInCentrifuge(centrifuge.BloodTubeSockets);
         if (bloodTubes.Count > 0)
         {
-            foreach (GameObject blood in bloodTubes)
+            foreach (GameObject tube in bloodTubes)
             {
                 if (enable)
                 {
-                    blood.GetComponentInChildren<HandGrabInteractable>().enabled = true;
+                    HandGrabInteractable[] handInteractions = tube.GetComponentsInChildren<HandGrabInteractable>();
+                    foreach (var item in handInteractions)
+                    {
+                        item.enabled = true;   
+                    }
                 } else
                 {
-                    blood.GetComponentInChildren<HandGrabInteractable>().enabled = false;
+                    HandGrabInteractable[] handInteractions = tube.GetComponentsInChildren<HandGrabInteractable>();
+                    foreach (var item in handInteractions)
+                    {
+                        item.enabled = false;   
+                    }
                 }
                 
             }

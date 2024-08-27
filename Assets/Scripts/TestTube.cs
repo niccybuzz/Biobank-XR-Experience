@@ -12,6 +12,9 @@ public class TestTube : MonoBehaviour
     protected bool animationCompleted = false;
     public bool lidOn = true;
     public GameObject plasma;
+ 
+    protected AudioSource dispenseSound;
+    protected AudioSource drawUpSound;
 
     protected SkinnedMeshRenderer skinnedMeshRenderer;
     public PipetteManager pipette;
@@ -28,14 +31,10 @@ public class TestTube : MonoBehaviour
             return;
         }
 
-
-        //Only using the final "blend shape" frame here, since it contains all the animation data we need
         lastBlendShapeIndex = skinnedMeshRenderer.sharedMesh.blendShapeCount - 1;
 
-        if (lastBlendShapeIndex < 0)
-        {
-            Debug.LogError("No blend shapes found on the SkinnedMeshRenderer.");
-        }
+        dispenseSound = GameObject.Find("DispensePlasmaSound").GetComponent<AudioSource>();
+        drawUpSound = GameObject.Find("DrawPlasmaSound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -54,6 +53,13 @@ public class TestTube : MonoBehaviour
     private void AnimateDispensePlasma()
     {
 
+        if (pipette.IsFull)
+        {
+            dispenseSound.Play();
+        } else
+        {
+            drawUpSound.Play();
+        }
         /* Time.deltaTime represents the amount of time that has passed since the last frame was rendered, varying based on framerate
          * When the animation starts, animationTimer is initialized to the total duration of the animation (e.g., 2 seconds).
          * Each frame, Time.deltaTime is subtracted from animationTimer. This means that with each passing frame, animationTimer gets closer to 0.

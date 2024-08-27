@@ -26,6 +26,7 @@ public class EmptyTubeManager : TestTube
         animationTimer = animationDuration;
         pipette.IsFull = false;
         skinnedMeshRenderer.enabled = true;
+        dispenseSound.Play();
         if (!challengeModeEnabled)
         {
             dispensePlasmaInstructions.NextPanel(1f);

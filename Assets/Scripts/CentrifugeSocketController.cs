@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class CentrifugeSocketController : MonoBehaviour
+public class CentrifugeSocketController : SnappablePlatform
 {
     public CentrifugeController controller;
     
