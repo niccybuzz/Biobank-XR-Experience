@@ -10,7 +10,7 @@ public class TestTubeManager : TestTube
     public GameObject splitBlood;
     public InstructionsPanelManager removeLidInstructions;
     public InstructionsPanelManager drawPlasmaInstructions;
-
+    
     public bool challengeModeEnabled = false;
 
     public bool BloodSplit { get => bloodSplit; set => bloodSplit = value; }
@@ -33,6 +33,7 @@ public class TestTubeManager : TestTube
         isAnimating = true;
         animationTimer = animationDuration;
         pipette.IsFull = true;
+        drawUpSound.Play();
         if (!challengeModeEnabled)
         {
             drawPlasmaInstructions.NextPanel(1f);

@@ -26,8 +26,8 @@ public class SnappablePlatform : MonoBehaviour
              * Getting the parent gameobject (i.e. the actual slice)
              * Have to use Transform instead of gameobject to navigate through parent / child relationships
              */
-            Transform slice = selectingInterator.gameObject.transform.parent;
-            blockOnPlatform = slice.gameObject;
+            Transform blockTransform = selectingInterator.gameObject.transform.parent;
+            blockOnPlatform = blockTransform.gameObject;
         }
 
         return blockOnPlatform;
