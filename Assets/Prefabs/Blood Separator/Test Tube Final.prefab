@@ -747,7 +747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 79deb2d6bbcfa324e91712f9f30fb2cc, type: 3}
       propertyPath: m_Name
-      value: Tube Tube 1
+      value: Test Tube Final
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 79deb2d6bbcfa324e91712f9f30fb2cc, type: 3}
       propertyPath: m_Layer
@@ -981,11 +981,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 783cb7b719369a54a8088576a22646d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instructionsManager: {fileID: 0}
+  animationDuration: 2
   lidOn: 1
-  bloodSplit: 0
+  plasma: {fileID: 0}
+  pipette: {fileID: 0}
   wholeBlood: {fileID: 6756046552237468210}
   splitBlood: {fileID: 6113277879117351600}
+  removeLidInstructions: {fileID: 0}
+  drawPlasmaInstructions: {fileID: 0}
+  challengeModeEnabled: 0
 --- !u!65 &7360096131323050640
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1235,10 +1239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e7e2eb270ade84c8e30f334c458696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationDuration: 2
-  pipette: {fileID: 0}
-  testTube: {fileID: 3416620529093139733}
-  instructionsManager: {fileID: 0}
 --- !u!136 &8214231291661978127
 CapsuleCollider:
   m_ObjectHideFlags: 0

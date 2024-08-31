@@ -12,13 +12,13 @@ public class TestTube : MonoBehaviour
     protected bool animationCompleted = false;
     public bool lidOn = true;
     public GameObject plasma;
- 
+
     protected AudioSource dispenseSound;
     protected AudioSource drawUpSound;
 
     protected SkinnedMeshRenderer skinnedMeshRenderer;
     public PipetteManager pipette;
- 
+
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +56,8 @@ public class TestTube : MonoBehaviour
         if (pipette.IsFull)
         {
             dispenseSound.Play();
-        } else
+        }
+        else
         {
             drawUpSound.Play();
         }
