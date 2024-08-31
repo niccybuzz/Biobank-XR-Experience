@@ -8,6 +8,7 @@ It was developed using Unity with the Meta All-In-One SDK for building MR applic
 <div align="center">
 <img src="github_assets/readme_gif1.gif" alt="Demo of the project" />
 </div>
+
 ## Project Abstract
 
 The Northern Ireland Biobank provides the infrastructure necessary for the collection, storage, and management of biological samples along with associated health and medical data for use primarily for cancer studies. 
