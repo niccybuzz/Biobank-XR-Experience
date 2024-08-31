@@ -56,7 +56,7 @@ public class ChallengeLaptop : LaptopController
     private void ClearBlocksAndSlices()
     {
         GameObject[] slices = GameObject.FindGameObjectsWithTag("Slice");
-        foreach (GameObject slice in slices) 
+        foreach (GameObject slice in slices)
         {
             slice.SetActive(false);
         }
@@ -64,7 +64,7 @@ public class ChallengeLaptop : LaptopController
         microscopeManager.DeleteSlideOnPlatform();
         microtome.ClearBlocksOnPlatform();
 
-        
+
         //Playing the smoke particle systems whenever they are deleted for a little visual effect
         smoke1.Play();
         smoke2.Play();
