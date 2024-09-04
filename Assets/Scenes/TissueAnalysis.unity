@@ -167,7 +167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 39.384987, y: -45.6}
+  m_AnchoredPosition: {x: 39.384987, y: -41.9}
   m_SizeDelta: {x: 68.66, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &85313833
@@ -190,12 +190,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'These are FFPE (formalin-fixed paraffin embedded) blocks.
-
-
-    They contain
-    little pieces of tissue collected from donors to keep them safe and stop them
-    from breaking.'
+  m_text: "Biobanks store tissue samples in the form of Formalin Fixed Paraffin Embedded
+    (FFPE) tissue blocks. \n\nTo preserve the tissue, it is fixed in formalin and
+    then embedded in a block of wax. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -383,8 +380,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 39.97, y: -45.6}
-  m_SizeDelta: {x: 69.82, y: 50}
+  m_AnchoredPosition: {x: 43.3, y: -45.4}
+  m_SizeDelta: {x: 69.82, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &135669714
 MonoBehaviour:
@@ -406,12 +403,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'FFPE tissue blocks are essential tools in medicine and science.
-
-
-    They
-    are used for diagnosing diseases, conducting research, teaching, studying genetics,
-    developing treatments, and understanding the history of diseases.'
+  m_text: 'Researchers can use this tissue to look for disease biomarkers by either
+    staining sections of the FFPE block, or by extracting DNA/RNA from the tissue
+    sections.  '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -438,8 +432,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3.99
-  m_fontSizeBase: 3.99
+  m_fontSize: 4.94
+  m_fontSizeBase: 4.94
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -645,7 +639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 36.869987, y: -44.800003}
+  m_AnchoredPosition: {x: 38.8, y: -44.800003}
   m_SizeDelta: {x: 63.63, y: 44.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &202738730
@@ -668,8 +662,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "This is a microtome. \n\nIt is used to make ultra- thin slices from tissue
-    blocks so that we can look at them closely under a microscope. "
+  m_text: "This is a microtome. \r\n\nIt is used to cut sections from a FFPE tissue
+    block. These sections are very thin, even thinner than a human hair! \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -696,8 +690,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 4.6
-  m_fontSizeBase: 4.6
+  m_fontSize: 4.68
+  m_fontSizeBase: 4.68
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -859,7 +853,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 68.715, y: -73.165}
+  m_AnchoredPosition: {x: 68.715, y: -75.6}
   m_SizeDelta: {x: 100, y: 10.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &224774645
@@ -1346,7 +1340,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 32.644997}
+  m_AnchoredPosition: {x: 0, y: 35.6}
   m_SizeDelta: {x: 137.32, y: 9.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &279330059
@@ -3547,7 +3541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &402287825
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3835,21 +3829,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 482544530}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1074154429}
-        m_TargetAssemblyTypeName: WorkstationSpawner, Assembly-CSharp
-        m_MethodName: SpawnWorkstation
+      - m_Target: {fileID: 431331996}
+        m_TargetAssemblyTypeName: RequestSceneCapture, Assembly-CSharp
+        m_MethodName: Request
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3857,19 +3839,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 917745752}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &431331999
 MonoBehaviour:
@@ -5210,7 +5180,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 31.535}
+  m_AnchoredPosition: {x: 0, y: 37.8}
   m_SizeDelta: {x: 137.32, y: 9.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &792618831
@@ -5419,7 +5389,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 68.715, y: -73.165}
+  m_AnchoredPosition: {x: 68.715, y: -75.7}
   m_SizeDelta: {x: 100, y: 10.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &816517276
@@ -5813,6 +5783,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1955337816142491132, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 113bbfdac9b92144ab19e8ef0740ab63, type: 2}
     - target: {fileID: 2421900247734531904, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
@@ -5861,6 +5835,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3286644029057680937, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: 113bbfdac9b92144ab19e8ef0740ab63, type: 2}
+    - target: {fileID: 3306799970557336801, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 113bbfdac9b92144ab19e8ef0740ab63, type: 2}
     - target: {fileID: 3462230608369866207, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
@@ -5879,11 +5861,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4043975414750902699, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.0504
       objectReference: {fileID: 0}
     - target: {fileID: 4043975414750902699, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.1017
+      value: -0.103
       objectReference: {fileID: 0}
     - target: {fileID: 4043975414750902699, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5913,6 +5895,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4964037976947618940, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 113bbfdac9b92144ab19e8ef0740ab63, type: 2}
     - target: {fileID: 5633989972953970837, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
       propertyPath: m_Name
       value: Wrist Menu
@@ -5921,6 +5907,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6235338565101959484, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: 113bbfdac9b92144ab19e8ef0740ab63, type: 2}
     - target: {fileID: 6897246755830926330, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
@@ -5929,6 +5919,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7087892195831236395, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: 113bbfdac9b92144ab19e8ef0740ab63, type: 2}
+    - target: {fileID: 7596141568222169191, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 113bbfdac9b92144ab19e8ef0740ab63, type: 2}
     - target: {fileID: 8614254637907620062, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
       propertyPath: hand
       value: 
@@ -5937,6 +5935,10 @@ PrefabInstance:
       propertyPath: handTransform
       value: 
       objectReference: {fileID: 2097076485}
+    - target: {fileID: 8861123255308911424, guid: d6b3852a502a7ae459c1c2d1e4a8ea7e, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: 113bbfdac9b92144ab19e8ef0740ab63, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6283,7 +6285,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'You successfully collected a slice from a tissue block and used it to
-    identify a potential illness
+    identify a potential disease
 
 
     Either continue playing around here, exit
@@ -6737,7 +6739,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 32.644997}
+  m_AnchoredPosition: {x: 0, y: 35.4}
   m_SizeDelta: {x: 137.32, y: 9.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1242532433
@@ -7151,7 +7153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 32.644997}
+  m_AnchoredPosition: {x: 0, y: 36.3}
   m_SizeDelta: {x: 137.32, y: 9.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1356228100
@@ -7276,7 +7278,7 @@ Transform:
   m_GameObject: {fileID: 1393311912}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.375}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8082,8 +8084,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0025090976, y: 35.36}
-  m_SizeDelta: {x: 137.43, y: 7.55}
+  m_AnchoredPosition: {x: 0.0025090976, y: 37.92}
+  m_SizeDelta: {x: 137.43, y: 12.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1551058861
 MonoBehaviour:
@@ -8793,7 +8795,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 36.869987, y: -40.265}
+  m_AnchoredPosition: {x: 40.4, y: -40.265}
   m_SizeDelta: {x: 63.63, y: 44.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1759871693
@@ -8816,14 +8818,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'In this experiment, you will slice a tissue sample block using the microtome.
-
-
-    Then,
-    we''ll look at the slice under a microscope and try to identify the illness!'
+  m_text: "In this experiment, you will cut some sections from a FFPE tissue block.
+    \n\nWe will then look at those under a microscope and try to identify the disease!\r\n\nOpen
+    the cabinet and take out the tray of FFPE blocks. \r\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8847,14 +8847,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 4.6
-  m_fontSizeBase: 4.6
+  m_fontSize: 4.23
+  m_fontSizeBase: 4.23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -8927,6 +8927,7 @@ GameObject:
   - component: {fileID: 1820031559}
   - component: {fileID: 1820031558}
   - component: {fileID: 1820031560}
+  - component: {fileID: 1820031563}
   m_Layer: 0
   m_Name: Main Menu Button
   m_TagString: Untagged
@@ -8978,41 +8979,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 482544530}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1820031563}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Startup
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1074154429}
-        m_TargetAssemblyTypeName: WorkstationSpawner, Assembly-CSharp
-        m_MethodName: SpawnWorkstation
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 917745752}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1820031559
 MonoBehaviour:
@@ -9092,6 +9069,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0.87, y: -17.3}
   m_SizeDelta: {x: 112.04, y: 12.51}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1820031563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820031557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43fabc68e7e78b449e690ed3ab6538f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1829964550
 GameObject:
   m_ObjectHideFlags: 0
@@ -9212,7 +9201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 68.715, y: -73.165}
+  m_AnchoredPosition: {x: 68.715, y: -75.3}
   m_SizeDelta: {x: 100, y: 10.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1909846833
@@ -9375,8 +9364,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.4587483, y: -2.1799984}
-  m_SizeDelta: {x: 126.36, y: 28.32}
+  m_AnchoredPosition: {x: -0.4587483, y: 11.362}
+  m_SizeDelta: {x: 126.36, y: 40.445}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2003373327
 MonoBehaviour:
@@ -9433,7 +9422,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -9814,7 +9803,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 68.715, y: -73.165}
+  m_AnchoredPosition: {x: 68.715, y: -76.2}
   m_SizeDelta: {x: 100, y: 10.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2094124154

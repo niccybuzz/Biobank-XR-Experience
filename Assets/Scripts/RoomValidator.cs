@@ -5,6 +5,7 @@ using Meta.XR.MRUtilityKit;
 using System;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 /// <summary>
 /// This class is utilised before the start of an activity scene, and checks to see if the appropriate room anchors are in place
@@ -163,9 +164,9 @@ public class RoomValidator : MonoBehaviour
     {
         if (!roomValid)
         {
-            continueButton.enabled = false;
-            mainMenuButton.enabled = true;
-            roomSetupButton.enabled = true;
+            continueButton.transform.gameObject.SetActive(false);
+            mainMenuButton.transform.gameObject.SetActive(true);
+            roomSetupButton.transform.gameObject.SetActive(true);
         }
         roomValidationText.text = message;
     }

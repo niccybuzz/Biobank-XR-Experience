@@ -23,6 +23,7 @@ public class TestTubeManager : TestTube
             if (pipette.IsPressed && !lidOn && !pipette.IsFull)
             {
                 StartDrawPlasma();
+                PlayPlasmaSound(drawUpSound);
             }
         }
 

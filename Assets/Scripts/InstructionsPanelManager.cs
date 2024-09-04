@@ -31,6 +31,15 @@ public class InstructionsPanelManager : MonoBehaviour
             StepComplete = true;
         }
     }
+    public void NextPanelCheckPrevious(float seconds, InstructionsPanelManager prevStep)
+    {
+        if (!StepComplete && prevStep.StepComplete)
+        {
+            bleep.Play();
+            StartCoroutine(ShowNextPanelCoroutine(seconds));
+            StepComplete = true;
+        }
+    }
 
     // Handles the activation and deactivation of current/next panel, after a specified delay
     IEnumerator ShowNextPanelCoroutine(float seconds)

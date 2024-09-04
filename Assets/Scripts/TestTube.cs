@@ -20,6 +20,12 @@ public class TestTube : MonoBehaviour
     public PipetteManager pipette;
 
 
+    public void PlayPlasmaSound(AudioSource sound)
+    {
+        sound.Play();
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,14 +59,6 @@ public class TestTube : MonoBehaviour
     private void AnimateDispensePlasma()
     {
 
-        if (pipette.IsFull)
-        {
-            dispenseSound.Play();
-        }
-        else
-        {
-            drawUpSound.Play();
-        }
         /* Time.deltaTime represents the amount of time that has passed since the last frame was rendered, varying based on framerate
          * When the animation starts, animationTimer is initialized to the total duration of the animation (e.g., 2 seconds).
          * Each frame, Time.deltaTime is subtracted from animationTimer. This means that with each passing frame, animationTimer gets closer to 0.
@@ -74,7 +72,6 @@ public class TestTube : MonoBehaviour
          * Mathf.Clamp01 ensures that the value is clamped between 0.0 and 1.0.
          * This is useful for ensuring that any small floating-point errors do not cause the value to exceed the expected range.
          */
-
         float weight = Mathf.Clamp01(1.0f - animationTimer / animationDuration) * 100f;
         skinnedMeshRenderer.SetBlendShapeWeight(lastBlendShapeIndex, weight);
 

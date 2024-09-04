@@ -58,15 +58,10 @@ public class IllnessRepository
         }
         return new List<Illness>
         {
-            new Illness("Alzheimer's", new List<string> {"Memory Loss", "Confusion" }, new List<string>{"Donepezil", "Cognitive Therapy" }, images[0]),
-            new Illness("Cardiovascular Disease", new List<string>{ "Chest Pain", "Shortness of Breath" }, new List<string> {"Statins", "Beta-blockers"}, images[1]),
-            new Illness("HIV/AIDS", new List<string>{"Fatigue", "Recurrent Infections" }, new List<string>{"Antiretroviral Therapy (ART)"}, images[2]),
-            new Illness("Rheumatoid Arthritis", new List<string>{"Joint Pain", "Swelling" }, new List<string>{"DMARDs", "Biologics" }, images[3]),
-            new Illness("Type 1 Diabetes", new List<string> {"Frequent Urination", "Extreme Thirst" }, new List<string>{"Insulin Therapy" } , images[4]),
-            new Illness("Asthma", new List<string>  {"Wheezing", "Shortness of Breath" }, new List<string> {"Inhaled Corticosteroids", "Bronchodilators" }, images[5]),
-            new Illness("Schizophrenia", new List<string>{"Hallucinations", "Delusions" }, new List<string>{"Antipsychotic Medication", "Psychotherapy"},  images[6]),
-            new Illness("Osteoporosis", new List<string>{"Bone Fractures", "Loss of height" }, new List<string>{"Biphosphonates", "Calcium and Vit D Supplements"}, images[7]),
-            new Illness("COPD", new List<string> {"Chronic Cough", "Difficulty Breathing" }, new List<string>{"Bronchiodilators", "Inhaled Steroids" }, images[8])
+            new Illness("Breast Cancer", new List<string> {"Lumps/Thickened Tissue", "Breast Shape/Size Changes" }, new List<string>{"Tamoxifen", "Trastuzumab"}, images[0]),
+            new Illness("Lung Cancer", new List<string>{ "Persistent Cough", "Shortness of Breath" }, new List<string> {"Cisplatin", "Erlotinib"}, images[1]),
+            new Illness("Colorectal Cancer", new List<string>{"Bowek Movement Changes", "Bloody Stools" }, new List<string>{"Oxa[liplatin", "5-Fluorouracil"}, images[2]),
+            new Illness("Ovarian Cancer", new List<string>{"Abdominal Bloating or Swelling", "Pelvin Pain" }, new List<string>{"Carboplatin", "Olaparib" }, images[3]),
         };
     }
 }

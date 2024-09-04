@@ -10,20 +10,25 @@ public class FinalScore : MonoBehaviour
     public Image star2;
     public Image star3;
 
+    public int minimum_1star;
+    public int minimum_2star;
+    public int minimum_3star;
+
+
     public void ShowFinalScore(int score)
     {
         finalScoreText.text = "Final score: " + score.ToString();
-        if (score >= 2)
+        if (score >= minimum_1star)
         {
             star1.gameObject.SetActive(true);
         }
 
-        if (score >= 4)
+        if (score >= minimum_2star)
         {
             star2.gameObject.SetActive(true);
         }
 
-        if (score >= 6)
+        if (score >= minimum_3star)
         {
             star3.gameObject.SetActive(true);
         }

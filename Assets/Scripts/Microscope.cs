@@ -11,8 +11,16 @@ public class Microscope : SnappablePlatform {
     public Canvas tabletScreen;
     private GameObject slideOnPlatform;
 
+    public InstructionsPanelManager instructionsPanelManager;
+    public InstructionsPanelManager prevStep;
+
     public void DisplayCellImage()
     {
+        if (instructionsPanelManager != null)
+        {
+
+            instructionsPanelManager.NextPanelCheckPrevious(1f, prevStep);
+        }
         slideOnPlatform = GetObjectOnPlatform();
         if (slideOnPlatform != null)
         {

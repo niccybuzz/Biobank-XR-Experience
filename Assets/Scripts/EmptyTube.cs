@@ -15,6 +15,7 @@ public class EmptyTubeManager : TestTube
             {
                 Debug.LogWarning("Pipette should be dispensing now");
                 StartDispensePlasma();
+                PlayPlasmaSound(dispenseSound);
             }
         }
 
