@@ -7,11 +7,20 @@ using UnityEngine;
  */
 public class ChallengeLaptop : LaptopController
 {
-    public ChallengeMode challengeMode;
-    public Microtome microtome;
-    public Microscope microscopeManager;
-    public ParticleSystem smoke1;
-    public ParticleSystem smoke2;
+    [SerializeField] 
+    ChallengeMode challengeMode;
+
+    [SerializeField]
+    Microtome microtome;
+
+    [SerializeField]
+    Microscope microscopeManager;
+
+    [SerializeField]
+    ParticleSystem smoke1;
+
+    [SerializeField]
+    ParticleSystem smoke2;
 
     // Called whenever the "Select" button is pressed on the laptop
     public override void SelectButton()

@@ -1,27 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
+/**
+ * Manages the image component of the FFPE Blocks
+ * Loads all images at the start of scene then attaches a random one
+ */
 public class FFPEBlock : MonoBehaviour
 {
-    private Sprite image;
-    public TextMeshProUGUI debugText;
-    public ImageGallery _imageGallery;
+    private Sprite _image;
+    public ImageGallery imageGallery;
 
-    public Sprite Image { get => image; set => image = value; }
+    public Sprite Image { get => _image; set => _image = value; }
 
     private void Start()
     {
-        _imageGallery.LoadImages();
+        imageGallery.LoadImages();
 
-        Image = _imageGallery.GetRandomImage();
+        Image = imageGallery.GetRandomImage();
     }
 
     private void AttachRandomImage()
     {
-        Sprite randomImage = _imageGallery.GetRandomImage();
+        Sprite randomImage = imageGallery.GetRandomImage();
         Image = randomImage;
     }
 

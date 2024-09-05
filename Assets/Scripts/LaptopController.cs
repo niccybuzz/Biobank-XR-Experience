@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,27 +9,33 @@ using UnityEngine.UI;
 /// </summary>
 public class LaptopController : MonoBehaviour
 {
+    //The information to be displayed
     private MedicalDatabase _medicalDatabase;
     private List<Illness> _illnesses;
 
     private int _currentIndex = 0;
 
+    // Variables for the various divs on the laptop screen
     public TextMeshProUGUI illnessNameTextBox;
     public TextMeshProUGUI symptomsTextBox;
     public TextMeshProUGUI treatmentsTextBox;
     public Image displayImage;
 
+    // Things for the popup message when select is pressed
     public PopupMessage popupMessage;
     public AudioSource correctChoiceSound;
     public AudioSource wrongChoiceSound;
     public InstructionsPanelManager instructionsPanelManager;
 
+    // The image on the tablet screen, to check if they match
     public Image tabletImage;
     void Start()
     {
         _medicalDatabase = GameObject.Find("Medical Database").GetComponent<MedicalDatabase>();
         _illnesses = _medicalDatabase.IllnessList;
     }
+    
+    // Flicks through the pages of the laptop, wrapping around
     public void NextPage()
     {
         if (_illnesses.Count == 0) return;
@@ -62,7 +66,7 @@ public class LaptopController : MonoBehaviour
 
     /*
      * This is required because the symptoms and treatments contained in the Medical Database are in a List
-     * Use this to append them all to a singke string to be displayed on the laptop screen
+     * Use this to append them all to a single string to be displayed on the laptop screen
      */
     string GetSymptomsTreatments(List<string> illnesses)
     {

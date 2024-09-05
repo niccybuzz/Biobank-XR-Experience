@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Meta.XR.MRUtilityKit;
-using System;
 using TMPro;
 using UnityEngine.UI;
 
@@ -163,9 +161,9 @@ public class RoomValidator : MonoBehaviour
     {
         if (!roomValid)
         {
-            continueButton.enabled = false;
-            mainMenuButton.enabled = true;
-            roomSetupButton.enabled = true;
+            continueButton.transform.gameObject.SetActive(false);
+            mainMenuButton.transform.gameObject.SetActive(true);
+            roomSetupButton.transform.gameObject.SetActive(true);
         }
         roomValidationText.text = message;
     }

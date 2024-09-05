@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// Experimental script to make an object face the player at the start of the scene
 public class FacePlayerOnStartVR : MonoBehaviour
 {
     // Reference to the player's CenterEyeAnchor (the main camera for the VR headset)
@@ -27,7 +26,6 @@ public class FacePlayerOnStartVR : MonoBehaviour
             
             // Apply the rotation
             transform.rotation = rotationToPlayer;
-            Debug.LogWarning("Rotated to face player");
         }
         else
         {

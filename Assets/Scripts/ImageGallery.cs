@@ -1,7 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
 
+// Loads a list of images from a specified directory
 public class ImageGallery : MonoBehaviour
 {
     public string imageFolder = "Images/ParaffinBlockImages";     
@@ -21,7 +21,6 @@ public class ImageGallery : MonoBehaviour
         if (loadedImages.Length > 0)
         {
             _images = new List<Sprite>(loadedImages);
-            Debug.Log("Images successfully loaded.");
         }
         else
         {

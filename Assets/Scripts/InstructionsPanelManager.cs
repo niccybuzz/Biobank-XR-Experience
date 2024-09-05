@@ -8,25 +8,36 @@ public class InstructionsPanelManager : MonoBehaviour
 {
     //Variables for the current and next panel and the border
     public GameObject currentPanel;
-    private GameObject confirmationBorder;
+    private GameObject _confirmationBorder;
     public GameObject nextPanel;
 
     // Variables for sound effects
-    private AudioSource bleep;
-    private AudioSource stageCompleteBleep;
+    private AudioSource _bleep;
+    private AudioSource _stageCompleteBleep;
 
     private GameObject[] FacePanels;
 
     // Used by other scripts to check whether a certain step has been completed or not
-    private bool stepComplete = false;
-    public bool StepComplete { get => stepComplete; set => stepComplete = value; }
+    private bool _stepComplete = false;
+    public bool StepComplete { get => _stepComplete; set => _stepComplete = value; }
 
     // Plays the sound effect, sets step to complete, and enables the green border
     public void NextPanel(float seconds)
     {
         if (!StepComplete)
         {
-            bleep.Play();
+            _bleep.Play();
+            StartCoroutine(ShowNextPanelCoroutine(seconds));
+            StepComplete = true;
+        }
+    }
+
+    // Does the same as NextPanel, but checks that a previous IPM has been completed already
+    public void NextPanelCheckPrevious(float seconds, InstructionsPanelManager prevStep)
+    {
+        if (!StepComplete && prevStep.StepComplete)
+        {
+            _bleep.Play();
             StartCoroutine(ShowNextPanelCoroutine(seconds));
             StepComplete = true;
         }
@@ -36,11 +47,11 @@ public class InstructionsPanelManager : MonoBehaviour
     IEnumerator ShowNextPanelCoroutine(float seconds)
     {
         //activate the border
-        confirmationBorder.GetComponent<Canvas>().enabled = true;
+        _confirmationBorder.GetComponent<Canvas>().enabled = true;
         //wait a moment
         yield return new WaitForSeconds(seconds);
         //deactivate the border and swap the panels
-        confirmationBorder.GetComponent<Canvas>().enabled = false;
+        _confirmationBorder.GetComponent<Canvas>().enabled = false;
         currentPanel.SetActive(false);
         nextPanel.SetActive(true);
     }
@@ -48,9 +59,9 @@ public class InstructionsPanelManager : MonoBehaviour
     // Fetches references to the border, sound effects, and face panels upon scene startup
     public void Start()
     {
-        confirmationBorder = GameObject.Find("BS_InstructionsBorder");
-        bleep = GameObject.Find("UIHappyBleep").GetComponent<AudioSource>();
-        stageCompleteBleep = GameObject.Find("StageCompleteAudio").GetComponent<AudioSource>();
+        _confirmationBorder = GameObject.Find("BS_InstructionsBorder");
+        _bleep = GameObject.Find("UIHappyBleep").GetComponent<AudioSource>();
+        _stageCompleteBleep = GameObject.Find("StageCompleteAudio").GetComponent<AudioSource>();
         FacePanels = GameObject.FindGameObjectsWithTag("MainUIPanel");
     }
 
@@ -63,7 +74,6 @@ public class InstructionsPanelManager : MonoBehaviour
     {
         StartCoroutine(CompleteStageCoroutine(seconds));
     }
-
 
     IEnumerator ShowFacePanelsCoroutine(float seconds)
     {
@@ -82,6 +92,6 @@ public class InstructionsPanelManager : MonoBehaviour
     IEnumerator CompleteStageCoroutine(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        stageCompleteBleep.Play();
+        _stageCompleteBleep.Play();
     }
 }

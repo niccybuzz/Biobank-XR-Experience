@@ -11,11 +11,11 @@ public class ChallengeMode : MonoBehaviour
     public TextMeshProUGUI countdownText;
     public TextMeshProUGUI scoreText;
 
-    private GameObject facePanels;
+    private GameObject _facePanels;
     public GameObject scorePanel;
 
     //Last tick time is used to play a "click" sound in the final 5 seconds of the timer (see Update method)
-    private float lastTickTime = 0f;
+    private float _lastTickTime = 0f;
     private int score = 0;
 
     public AudioSource tick;
@@ -23,10 +23,10 @@ public class ChallengeMode : MonoBehaviour
     public AudioSource missionCompleteSound;
 
     //BeginCountdown is the text panel that counts 3 2 1 go before the actual timer begins
-    private BeginCountdown preCountdown;
+    private BeginCountdown _preCountdown;
 
     public float timeRemaining = 60f;
-    private bool timerIsRunning = false;
+    private bool _timerIsRunning = false;
     public int Score { get => score; set => score = value; }
 
     void Start()
@@ -35,14 +35,14 @@ public class ChallengeMode : MonoBehaviour
         scoreText.text = score.ToString();
 
         //Have to use GameObject.find here because face panels and BeginCountdown are not in the workstation prefab
-        facePanels = GameObject.Find("FacePanels");
-        preCountdown = GameObject.Find("321Go").GetComponent<BeginCountdown>();
+        _facePanels = GameObject.Find("FacePanels");
+        _preCountdown = GameObject.Find("321Go").GetComponent<BeginCountdown>();
     }
 
     // Called whenever a successful point is score, updating the scoreboard text
     public void AddPoint()
     {
-        if (timerIsRunning)
+        if (_timerIsRunning)
         {
             score += 1;
             scoreText.text = score.ToString();
@@ -58,14 +58,14 @@ public class ChallengeMode : MonoBehaviour
     // Displaying the 3, 2, 1 GO message before start of the timer, then starting time
     private IEnumerator PreCountdown()
     {
-        preCountdown.ThreeTwoOneGo();
+        _preCountdown.ThreeTwoOneGo();
         yield return new WaitForSeconds(3);
-        timerIsRunning = true;
+        _timerIsRunning = true;
     }
 
     void Update()
     {
-        if (timerIsRunning)
+        if (_timerIsRunning)
         {
             // Updating the timer every second
             if (timeRemaining > 0)
@@ -76,7 +76,7 @@ public class ChallengeMode : MonoBehaviour
             else //Stop the timer
             {
                 timeRemaining = 0;
-                timerIsRunning = false;
+                _timerIsRunning = false;
                 DisplayScore();
                 scorePanel.SetActive(false);
             }
@@ -85,10 +85,10 @@ public class ChallengeMode : MonoBehaviour
             if (timeRemaining <= 5)
             {
                 // Check if 1 second has passed since the last tick
-                if (Time.time >= lastTickTime + 1f)
+                if (Time.time >= _lastTickTime + 1f)
                 {
                     tick.Play();
-                    lastTickTime = Time.time;  // Update the last tick time
+                    _lastTickTime = Time.time;  // Update the last tick time
                 }
             }
 
@@ -111,10 +111,10 @@ public class ChallengeMode : MonoBehaviour
     {
 
         missionCompleteSound.Play();
-        facePanels.SetActive(true);
+        _facePanels.SetActive(true);
 
         //Using GameObject.Find here again because the face panels are not inside this prefab
-        FinalScore finalScore = facePanels.GetComponentInChildren<FinalScore>();
+        FinalScore finalScore = _facePanels.GetComponentInChildren<FinalScore>();
         finalScore.ShowFinalScore(score);
     }
 }

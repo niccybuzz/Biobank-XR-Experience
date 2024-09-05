@@ -14,7 +14,6 @@ public class TestTubeManager : TestTube
     public bool challengeModeEnabled = false;
 
     public bool BloodSplit { get => bloodSplit; set => bloodSplit = value; }
-    public bool LidOn { get => lidOn; set => lidOn = value; }
 
     private void OnTriggerStay(Collider other)
     {
@@ -23,6 +22,7 @@ public class TestTubeManager : TestTube
             if (pipette.IsPressed && !lidOn && !pipette.IsFull)
             {
                 StartDrawPlasma();
+                PlayPlasmaSound(drawUpSound);
             }
         }
 
@@ -48,7 +48,7 @@ public class TestTubeManager : TestTube
         splitBlood.SetActive(true);
     }
 
-    public void RemoveLid()
+    public override void RemoveLid()
     {
 
         lidOn = false;
@@ -56,12 +56,6 @@ public class TestTubeManager : TestTube
         {
             removeLidInstructions.NextPanel(1f);
         }
-    }
-
-    public void PutLidOn()
-    {
-
-        lidOn = true;
     }
 
 }

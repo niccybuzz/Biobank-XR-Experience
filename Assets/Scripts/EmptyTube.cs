@@ -1,32 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Child class of test tube
+ * Monitors for the presence of the pipette in it's trigger zone and triggers plasma animation if button is pressed
+ */
 public class EmptyTubeManager : TestTube
 {
     public InstructionsPanelManager dispensePlasmaInstructions;
     public bool challengeModeEnabled;
     public ChallengeMode challengeMode;
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Tip"))
         {
             if (pipette.IsPressed &&!lidOn &&pipette.IsFull)
             {
-                Debug.LogWarning("Pipette should be dispensing now");
                 StartDispensePlasma();
+                PlayPlasmaSound(dispenseSound);
             }
         }
 
     }
-    protected virtual void StartDispensePlasma()
+    protected void StartDispensePlasma()
     {
         animationCompleted = false;
-        isAnimating = true;
+        isAnimating = true; // Start animation
         animationTimer = animationDuration;
-        pipette.IsFull = false;
-        skinnedMeshRenderer.enabled = true;
-        dispenseSound.Play();
+        pipette.IsFull = false; // Ensures the pipette can't dispense 2 in a row
+        plasmaSkinnedMeshRenderer.enabled = true; // enable the visuals to see the plasma
+
+        // Complete the stage in regular mode, or add a point in challenge mode
         if (!challengeModeEnabled)
         {
             dispensePlasmaInstructions.NextPanel(1f);
@@ -39,14 +43,4 @@ public class EmptyTubeManager : TestTube
         }
     }
 
-    public void RemoveLid()
-    {
-        lidOn = false;
-    }
-
-    public void PutLidOn()
-    {
-
-        lidOn = true;
-    }
 }
