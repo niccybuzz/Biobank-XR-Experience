@@ -1,4 +1,4 @@
-# [Biobank XR Experience](https://github.com/niccybuzz/Biobank-XR-Experience)
+# [NIB HoloLab](https://github.com/niccybuzz/Biobank-XR-Experience)
 
 Biobank XR Experience is a mixed reality laboratory simulation for the Meta Quest 3.
 
