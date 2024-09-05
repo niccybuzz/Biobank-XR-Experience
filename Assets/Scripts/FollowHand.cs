@@ -1,17 +1,12 @@
 using UnityEngine;
 
-public class FollowHandOculus : MonoBehaviour
+// Used by the wrist menu to continuously follow the user's hand
+public class FollowHand : MonoBehaviour
 {
-
     public OVRHand hand;
     public Transform handTransform;
     public float positionLerpSpeed = 5f;
     public float rotationLerpSpeed = 5f;
-
-    void Start()
-    {
-
-    }
 
     void Update()
     {

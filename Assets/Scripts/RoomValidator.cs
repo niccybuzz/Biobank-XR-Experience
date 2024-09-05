@@ -1,11 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Meta.XR.MRUtilityKit;
-using System;
 using TMPro;
 using UnityEngine.UI;
-using Unity.VisualScripting;
 
 /// <summary>
 /// This class is utilised before the start of an activity scene, and checks to see if the appropriate room anchors are in place

@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Triggers a visual "outline" of the object to be snapped on the snappable platform
+ */
 public class SnapVisual : MonoBehaviour
 {
-    public string triggeringObjectFilter;
+    public string triggeringObjectFilter; // String used to filter which objects can trigger the snap visuals
     public GameObject snapVisual;
 
     public void OnTriggerEnter(Collider other)

@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/*
+ * Activates snap interactions on slices once soaked in the water bath
+ * Also plays a little plop sound effect
+ */
 public class SoakSlice : MonoBehaviour
 {
     public AudioSource plop;

@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 //Produces a list of illnesses, containing a sprite from the ImageGallery and symptoms/treatments produced by the IllnessRepository class
-
 public class MedicalDatabase : ImageGallery
 {
     private List<Illness> _illnessList;
@@ -15,13 +13,6 @@ public class MedicalDatabase : ImageGallery
     {
         LoadImages();
         _illnessList = IllnessRepository.GetAllIllnesses(Images);
-        if (IllnessList != null)
-        {
-        }
-        else
-        {
-            Debug.LogWarning("No list found");
-        }
     }
 }
 //Represents an Illness
@@ -52,10 +43,6 @@ public class IllnessRepository
 {
     public static List<Illness> GetAllIllnesses(List<Sprite> images)
     {
-        if (images == null )
-        {
-            Debug.LogWarning("The images list must contain at least 9 elements.");
-        }
         return new List<Illness>
         {
             new Illness("Breast Cancer", new List<string> {"Lumps/Thickened Tissue", "Breast Shape/Size Changes" }, new List<string>{"Tamoxifen", "Trastuzumab"}, images[0]),

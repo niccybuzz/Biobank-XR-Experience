@@ -1,14 +1,14 @@
-
-using UnityEditor.XR;
 using UnityEngine;
 
+/*
+ * Manages the state and animations of the pipette
+ */
 public class PipetteManager : MonoBehaviour
 {
     //status bools
     private bool isPressed = false;
     private bool isHeld = false;
     private bool isFull = false;
-
 
     [SerializeField]
     private bool challengeModeEnabled;
@@ -35,7 +35,6 @@ public class PipetteManager : MonoBehaviour
     private void Start()
     {
         plunger_InitialPosition = plunger.transform.localPosition;
-
     }
 
     public void OnGrab()

@@ -1,8 +1,9 @@
 using UnityEngine;
 
+// Used to control the movement synchronisation between the crank and the slicer block
 public class CrankController : MonoBehaviour
 {
-    public Transform sampleBlockSlicer;  // Reference to the slicer object
+    public Transform sampleBlockSlicer;  
     public float amplitude = 1.0f; // Maximum distance the slicer moves up and down
     public float frequency = 1.0f; // Controls the speed of the movement
 

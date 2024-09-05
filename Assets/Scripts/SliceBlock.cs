@@ -1,9 +1,10 @@
-using Oculus.Interaction;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
+/*
+ * Spawns a block when the crank is rotated with a block attached
+ * Has a list of slices, each of which correspond to a different block colour pattern, for visual consistency
+ */
 public class SliceBlock : MonoBehaviour
 {
     public Transform spawnLocation;

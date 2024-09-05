@@ -1,21 +1,32 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/**
+ * Used to control the countdown prior to beginning Challenge Mode
+ * Displays the big number on the screen and plays the beeps
+ */
 public class BeginCountdown : MonoBehaviour
 {
-    public AudioSource bip;
-    public AudioSource beeep;
-    public TextMeshProUGUI countdownText;
-    public int countdownNumber = 3;
+    [SerializeField]
+    AudioSource bip;
 
+    [SerializeField]
+    AudioSource beeep;
+
+    [SerializeField]
+    TextMeshProUGUI countdownText;
+
+    private int countdownNumber = 3;
+
+    //starts the countdown by calling the IEnumarator
     public void ThreeTwoOneGo()
     {
         countdownText.text = countdownNumber.ToString();
         StartCoroutine("Countdown");
     }
 
+    // Plays a short beep every second until "Go" where it plays a longer beep
     private IEnumerator Countdown()
     {
         while (countdownNumber > 0)

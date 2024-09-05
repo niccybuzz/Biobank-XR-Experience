@@ -1,16 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
+/* 
+ * Used by the microscope slides, mainly to pass the image from the sample slice to the platform
+ */
 public class MicroscopeSlide : SnappablePlatform
 {
     public InstructionsPanelManager panelManager;
     public InstructionsPanelManager previousStep;
 
-    private Sprite slideImage;
+    private Sprite _slideImage;
 
-    public Sprite SlideImage { get => slideImage; set => slideImage = value; }
+    public Sprite SlideImage { get => _slideImage; set => _slideImage = value; }
 
 
     // When a sample slice is placed on a microscope slide, gets the image from that sample slice
@@ -21,7 +21,7 @@ public class MicroscopeSlide : SnappablePlatform
         if (sampleSliceAttached != null)
         {
             Slice slice = sampleSliceAttached.GetComponent<Slice>();
-            slideImage = slice.SliceImage;
+            _slideImage = slice.SliceImage;
         }
         if (panelManager != null && previousStep != null)
         {

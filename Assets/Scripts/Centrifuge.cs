@@ -1,4 +1,3 @@
-
 using Oculus.Interaction;
 using Oculus.Interaction.HandGrab;
 using System.Collections;
@@ -11,27 +10,27 @@ public class CentrifugeController : MonoBehaviour
 {
     //Variables for spinning the centrifuge
     [SerializeField]
-    private float spinDuration = 10.0f; // Total duration of the spinning motion
+    float spinDuration = 10.0f; // Total duration of the spinning motion
     [SerializeField]
-    private float maxSpinSpeed = 3600.0f; // Maximum speed of rotation in degrees per second
+    float maxSpinSpeed = 3600.0f; // Maximum speed of rotation in degrees per second
     [SerializeField]
-    private float accelerationTime = 1.0f; // Time to accelerate to max speed in seconds
+    float accelerationTime = 1.0f; // Time to accelerate to max speed in seconds
 
 
     //Variables for getting various parts of the centrifuge including lid, sockets, etc
     [SerializeField]
-    private Transform centralPiece;
+    Transform centralPiece;
     [SerializeField]
-    private GameObject lid;
+    GameObject lid;
     [SerializeField]
-    private HandGrabInteractable centrifugeHandle;
+    HandGrabInteractable centrifugeHandle;
     [SerializeField]
-    private PokeInteractable centrifugeButton;
+    PokeInteractable centrifugeButton;
 
     // Variables for interacting with blood tubes in the sockets
-    private List<GameObject> bloodTubes;
-    private CentrifugeSocketController[] bloodTubeSockets;
-    private int numberOfTubesInSockets = 0;
+    private List<GameObject> _bloodTubes;
+    private CentrifugeSocketController[] _bloodTubeSockets;
+    private int _numberOfTubesInSockets = 0;
 
     //Instructions panel interactors
     public InstructionsPanelManager openCentrifugePanel;
@@ -41,22 +40,21 @@ public class CentrifugeController : MonoBehaviour
 
     // Sound clip that plays whilst spinning
     [SerializeField]
-    private AudioSource centrifugeAudio;
+    AudioSource centrifugeAudio;
 
     // Variables to control functionality of centrifuge in different states
-    private bool isSpinning = false;
+    private bool _isSpinning = false;
 
     //determined whether instructions panel related code should be run
     [SerializeField]
-    private bool challengeModeEnabled = false;
+    bool challengeModeEnabled = false;
 
-    public CentrifugeSocketController[] BloodTubeSockets { get => bloodTubeSockets; set => bloodTubeSockets = value; }
+    public CentrifugeSocketController[] BloodTubeSockets { get => _bloodTubeSockets; set => _bloodTubeSockets = value; }
 
     //Upon scene initialiation, collects a list of all the snap interactable components in the children, i.e the tube sockets
     public void Start()
     {
         BloodTubeSockets = GetComponentsInChildren<CentrifugeSocketController>(true);
-        Debug.LogWarning(BloodTubeSockets.Length + " sockets found");
     }
 
     /*
@@ -66,12 +64,12 @@ public class CentrifugeController : MonoBehaviour
      * */
     public void SpinCentrifuge()
     {
-        if (!isSpinning)
+        if (!_isSpinning)
         {
             StartCoroutine(SpinForDuration());
             SplitBloodInAllInteractingTubes(BloodTubeSockets);
             centrifugeAudio.Play();
-            if (numberOfTubesInSockets >= 2 && !challengeModeEnabled)
+            if (_numberOfTubesInSockets >= 2 && !challengeModeEnabled)
             {
                 pressCentrifugeButtonPanel.NextPanel(spinDuration);
                 pressCentrifugeButtonPanel.CompleteStage(spinDuration);
@@ -91,22 +89,21 @@ public class CentrifugeController : MonoBehaviour
         }
     }
 
-
     public void CloseCentrifuge()
     {
         centrifugeButton.enabled = true;
-        if (numberOfTubesInSockets >= 2 && !challengeModeEnabled)
+        if (_numberOfTubesInSockets >= 2 && !challengeModeEnabled)
         {
             closeCentrifugePanel.NextPanel(1);
         }
     }
 
-    // Calls split blood for each tube currently attached to a socket
+    // Calls SplitBlood() for each tube currently attached to a socket
     private void SplitBloodInAllInteractingTubes(CentrifugeSocketController[] bloodTubeSockets)
     {
-        bloodTubes = GetAllBloodTubesInCentrifuge(bloodTubeSockets);
+        _bloodTubes = GetAllBloodTubesInCentrifuge(bloodTubeSockets);
 
-        foreach (GameObject tube in bloodTubes)
+        foreach (GameObject tube in _bloodTubes)
         {
             tube.GetComponent<TestTubeManager>().SplitBlood();
         }
@@ -120,7 +117,6 @@ public class CentrifugeController : MonoBehaviour
     {
         List<GameObject> bloodTubes = new();
 
-        //iterating through each of the 6 Snap Interactables, one in each centrifuge socket
         foreach (CentrifugeSocketController socket in bloodTubeSockets)
         {
             GameObject tube = socket.GetObjectOnPlatform();
@@ -136,8 +132,8 @@ public class CentrifugeController : MonoBehaviour
     // Called each time a tube is placed in a socket
     public void IncrementTubesInSockets()
     {
-        numberOfTubesInSockets++;
-        if (numberOfTubesInSockets >= 2 && !challengeModeEnabled)
+        _numberOfTubesInSockets++;
+        if (_numberOfTubesInSockets >= 2 && !challengeModeEnabled)
         {
             tubesInCentrifugePanel.NextPanel(1);
         }
@@ -146,17 +142,16 @@ public class CentrifugeController : MonoBehaviour
     // Called whenever a tube is removed from a socket
     public void DecrementTubesInSockets()
     {
-        numberOfTubesInSockets--;
+        _numberOfTubesInSockets--;
     }
 
     /*
      * A coroutine which animates the sample holder in the centrifuge to spin for a specified amount of time
      * Starts off slowly, and accelerates to maximum speed before deccelerating again
-     * This function was written with assistance from AI, since the maths component was beyond my own abilities
      */
     private IEnumerator SpinForDuration()
     {
-        isSpinning = true;
+        _isSpinning = true;
         centrifugeHandle.enabled = false;
 
         float elapsedTime = 0f;
@@ -201,25 +196,9 @@ public class CentrifugeController : MonoBehaviour
             yield return null;
         }
 
+        //reenable the centrifuge button and end spinning
         centrifugeHandle.enabled = true;
-        isSpinning = false;
-    }
-
-    // A previously attempt to manage open/closed state by continuously checking the current angle of the lid
-    public void Update()
-    {
-        /*      Quaternion lidRotation = lid.transform.rotation;
-                Vector3 eulerRotation = lidRotation.eulerAngles;
-
-                if (eulerRotation.x < 275f && eulerRotation.x > 100f)
-                {
-                    centrifugeIsOpen = false;
-                }
-                else
-                {
-                    centrifugeIsOpen = true;
-                }*/
-
+        _isSpinning = false;
     }
 }
 

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/*
+ * Moves the invisible floor of the water bath up and down, simulating floating
+ */
 public class FloatingObject : MonoBehaviour
 {
     public float amplitude = 0.5f; // The height of the floating effect
@@ -12,9 +15,8 @@ public class FloatingObject : MonoBehaviour
 
     void Start()
     {
-        // Store the initial position and rotation
+        // Store the initial position 
         initialPosition = transform.position;
-        initialRotation = transform.rotation;
     }
 
     void Update()
@@ -23,12 +25,5 @@ public class FloatingObject : MonoBehaviour
         Vector3 newPosition = initialPosition;
         newPosition.y += Mathf.Sin(Time.time * frequency) * amplitude;
         transform.position = newPosition;
-
-        // Update the floating rotation
-        Quaternion newRotation = initialRotation;
-        float rotationX = Mathf.Sin(Time.time * rotationFrequency) * rotationAmplitude;
-        float rotationZ = Mathf.Cos(Time.time * rotationFrequency) * rotationAmplitude;
-        newRotation *= Quaternion.Euler(rotationX, 0f, rotationZ);
-        transform.rotation = newRotation;
     }
 }

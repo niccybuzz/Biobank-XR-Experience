@@ -1,23 +1,19 @@
 using Oculus.Interaction;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 /*
  * Governs the behaviour of the slices produced from the sample blocks when operating the microtome
  */
 public class Slice : MonoBehaviour
 {
-
     // The png image associated with the slide, determined when the slice is produced from the sample block being cut
-    private Sprite sliceImage;
+    private Sprite _sliceImage;
     // A reference to the microtome used to retrieve the current sample block attached
     private Microtome _microtome;
 
-    public Sprite SliceImage { get => sliceImage; set => sliceImage = value; }
+    public Sprite SliceImage { get => _sliceImage; set => _sliceImage = value; }
 
+    // I don't know why Start() doesn't work for this, but it doesn't
     void OnEnable()
     {
         _microtome = GameObject.Find("Microtome").GetComponent<Microtome>();
