@@ -2,6 +2,8 @@
 
 Biobank XR Experience is a mixed reality laboratory simulation for the Meta Quest 3.
 
+## [Watch the video!](https://youtu.be/R4c6Khhy0jI?si=jM33cQOtBQkzF27Z)
+
 This project is my individual project submission for the MSc Software Development course at Queen's University Belfast.
 It was developed using Unity with the Meta All-In-One SDK for building MR applications.
 
