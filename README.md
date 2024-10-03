@@ -5,7 +5,7 @@ Biobank XR Experience is a mixed reality laboratory simulation for the Meta Ques
 ## [Watch the video! (Link)](https://youtu.be/R4c6Khhy0jI?si=jM33cQOtBQkzF27Z)
 
 <div align="center">
-<img src="github_assets/using_centrifuge.gif" alt="Gif of centrifuge in use" />
+<img src="github_assets/readme_gif1.gif" alt="Demo of the project" />
 </div>
 
 This project is my individual project submission for the MSc Software Development course at Queen's University Belfast.
@@ -20,10 +20,6 @@ Although sample donation to the NIB is voluntary and participation rates are hig
 This project developed a Mixed Reality simulation of a biobank laboratory, allowing users without a scientific background to experience various laboratory processes in a safe and entertaining way with the aim of promoting public engagement and increasing volunteer sign up rates.
 
 The simulation was created using Unity game development software and is specifically designed for the Meta Quest 3 Mixed Reality Headset. The project includes two primary activities selectable from a main menu, supplemented by tutorials for setup and engagement, a custom soundtrack, and a “challenge mode” that gamifies the experience by imposing a time limit and scoring system.
-
-<div align="center">
-<img src="github_assets/readme_gif1.gif" alt="Demo of the project" />
-</div>
 
 ## Getting Started
 
