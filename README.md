@@ -5,7 +5,7 @@ Biobank XR Experience is a mixed reality laboratory simulation for the Meta Ques
 ## [Watch the video! (Link)](https://youtu.be/R4c6Khhy0jI?si=jM33cQOtBQkzF27Z)
 
 <div align="center">
-<img src="github_assets/using_centrifuge_cropped.gif" alt="Demo of the project" />
+<img src="github_assets/using_centrifuge.gif" alt="Gif of centrifuge in use" />
 </div>
 
 This project is my individual project submission for the MSc Software Development course at Queen's University Belfast.
